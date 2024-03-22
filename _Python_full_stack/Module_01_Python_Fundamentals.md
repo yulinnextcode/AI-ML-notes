@@ -27,7 +27,11 @@ There are many code books in programing, such as utf-8 coding and gbk coding. Wh
 >[!NOTE]
 >**Users must use the same code book as the files are saved to open them. If user save a file with UTF-8 and open it with GBK, then it will become garbled characters.**
 # 2. Programming with Python
-Python interpreter will open python file with UTF-8 by default. If user want to change Python interpreter coding, user can add following at the file beginning
+Python interpreter will open python file with UTF-8 by default. You can imagine Python write following at the beginning by default.
+```python3
+# -*- coding:utf-8 -*-
+```
+If user want to change Python interpreter coding, user can add following at the file beginning
 ```python3
 # -*- coding:gbk -*-
 ```
