@@ -130,10 +130,20 @@ file_object.close()
 | Data Type | Definition | Distinct Function | Common Function | Type Convert | Others |
 | --- | --- | --- | --- | --- | --- |
 | int | age=24 | NA | add, minus, multiple, divide | n1=int(True), v1=int("186", base=10) | Python3: int(unlimited), v1=9/2=4.5, Python2: int, long int, v1=9/2=4 |
-| bool | data=False | NA | v1=True+True=2 | Conver 0, "", [], (), {} to bool will get False. Convert others will get True | automaticly convert to bool at if or while statement |
+| bool | data=False | NA | v1=True+True=2 | **Conver 0/""/[]/()/{}/None to bool will get False.** Convert others will get True | automaticly convert to bool at if or while statement |
 | str | v1="test" | v1.startswith("a"), v1.endswith("a"), v1.isdecimal(), v1.strip(), v1.lstrip(), v1.rstrip(), v1.upper(), v1.lower(), v1.replace(), v1.split('-'), v1.rsplit(), v1.join(), v1.format(), v1.encode(), v1.decode(), v1.center(), v1.rjust(), v1.zfill() | v1="a"+"b", v1="a"*3, len(v1), v1[0:2] | Only int can convert to string | String can not be edited |
-| list | a=[1,5,9,17] | str can't be edited directly: a='Joe', b=a.upper() list can be edited directly: a=[3,9], a.append(17), a.insert(), a.remove(), a.pop(), a.clear(), a.sort(), a.index(), a.reverse() | ['a','b']+['c','d'], ['a','b']*2, len(a), a[0:2] | int and bool can not be convert to list. name="Joe", data=list(name), data is ["J","o","e"]; v1=(1,2,3), a1=list(v1); v2={"Joe","Lee"}, b2=list(v2) | list inside another list. order, editable, store different types.
-| tuple | v1=(1,2,3) | NA | a=("A","B"), b=("C","D"), c=a+b, d=a*2, len(a), a[0:1] | only string and list can be convert to tuple | order, uneditable, store different types. |
+| list | a=[1,5,9,17] | str can't be edited directly: a='Joe', b=a.upper() list can be edited directly: a=[3,9], a.append(17), a.insert(), a.remove(), a.pop(), a.clear(), a.sort(), a.index(), a.reverse() | ['a','b']+['c','d'], ['a','b']*2, len(a), a[0:2] | int and bool can not be convert to list. name="Joe", data=list(name), data is ["J","o","e"]; v1=(1,2,3), a1=list(v1); v2={"Joe","Lee"}, b2=list(v2) | list inside another list. **order, editable,** store different types.
+| tuple | v1=(1,2,3) | NA | a=("A","B"), b=("C","D"), c=a+b, d=a*2, len(a), a[0:1] | only string and list can be convert to tuple | **order, uneditable,** store different types. |
+| set | v1={11,33,"Joe"} | v1.add(), v1.discard(), v1.intersection(), v1.union(), v1.difference() | v2=v1-v2, v3=v1&v2, v3=v1/v2, len(v1) | int, list, tuple, dict can be converted to set | **Orderless, editable, not repeat, elements must be hashable but set is not hashable, elements must be hashable int\bool\str\tuple, list\set\dict are not hashable, very high efficiency in finding elements** |
+| dict | test={"a":1,"b":2}, keys must hashable **(int/bool/str/tuple hashable, list/set/dict not hashable)** | test.get("a"), test.keys(), test.values(), test.items(), test.setdefault(), test.update(), test.pop(), test.popitem() | t3=t1\t2, len(test), test["a"]=9 | v=dict(("t1","t2"),["a1","a2"]) | high efficiency in finding elements |
+# 8. Others
+- Code specifications [PEP 8](https://peps.python.org/pep-0008/)
+- Difference between is and ==? == compares two values, is compares two address.
+![python_fundamentals_roadmap](/_Python_full_stack/imgs/Fundamentals.jpg)
+
+
+
+
 
 
 
