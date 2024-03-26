@@ -236,13 +236,88 @@ shutil.move("/Users/folder/test1.png","/Users/folder/test2.png")
 > File absolute directory (recommend). Do not write fixed directory, use os module to get absolute directory to avoid error when transferring codes to other computers.
 > "D:\\nxxx\\txxx\\test1" or r"D:\nxxx\txxx\test2" or os.path.join
 
+# 3. Custom functions
 
+![function_introduction](/_Python_full_stack/imgs/Functions.PNG)
 
+## 3.1 Parameters
+- formal parameters
+···python
+def func(a1, a2, a3)
+···
+- actual parameters
+'''python
+def func(11,22,33)
+'''
+- parameters by location
+```python
+def add(n1,n2):
+  print n1+n2
 
+add(23,67)
+```
+- parameters by keyword
+```python
+def add(n1,n2):
+  print n1+n2
 
+add(n1=23,n2=67)
+```
+# 3.2 Dynamic parameters
+- *, pass parameters by location
+```python
+def func(*args):
+  print(args)  # tuple, (22,56,89)
 
+func(23,56,89) 
+```
+- **, pass parameters by keyword
+```python
+def func(**kwargs):
+  print(kwargs)  # dictionary, {"n1":"Jason", "age":"23", "salary":"8700"}
 
+func(n1="Jason", age=23, salary=8700)
+```
+- *,** ()
+```python
+def func(*args,**kwargs):
+  print(args,kwargs)  # dictionary, (23,89) {"n1":"Jason", "age":"23", "salary":"8700"}
 
+func(23,89,n1="Jason", age=23, salary=8700)
+```
+> [!IMPORTANT]
+> ** must be placed after *
+```python
+def func(t1,t2,t3, t4=23, *args, t5=89, **kwargs):
+  print(t1,t2,t3,t4,t5,args,kwargs)
+
+func(11,22,33,44,55,66,77,t5=66,t9=77)
+```
+# 3.3 Function return value
+- Function return value can be any type. If return value is not specified, the it will return None.
+- If return values are seperated by "," that will be tuple
+```python
+def func():
+  return 7,8,9
+
+value=func()
+print(value)  #(7,8,9)
+```
+- Functions will be terminated as once when return is executed.
+
+# 4. Function next step
+![Python_Function_Advanced](/_Python_full_stack/imgs/Function_next_step.PNG)
+When functions transfer parameters, they are transferring memoray address. The return values are also returning the meory address.
+function names are variables. Function name can be assigned to other variables.
+
+# 5. Advanced functions
+![Python_Function_Advanced](/_Python_full_stack/imgs/Function_advanced.PNG)
+## 5.1 Nested functions
+First find inside its own domain, then find upper domain.
+## 5.2 Function closure
+Python closure is a nested function that allows us to access variables of the outer function even after the outer function is closed.
+## 5.3 Decorator
+https://python-3-patterns-idioms-test.readthedocs.io/en/latest/PythonDecorators.html
 
 
 
