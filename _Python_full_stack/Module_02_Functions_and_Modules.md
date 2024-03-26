@@ -387,7 +387,7 @@ func()
 
 
 # 6. Build-in functions and comprehensions
-![Python_Function_Advanced](/_Python_full_stack/imgs/Build-in_function_and_comprehensions.PNG)
+![Python_Function_Advanced](/_Python_full_stack/imgs/Build-in_function_and_comprehensions.jpg)
 
 
 
