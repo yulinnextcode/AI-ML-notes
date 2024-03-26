@@ -318,13 +318,76 @@ First find inside its own domain, then find upper domain.
 Python closure is a nested function that allows us to access variables of the outer function even after the outer function is closed.
 ## 5.3 Decorator
 https://python-3-patterns-idioms-test.readthedocs.io/en/latest/PythonDecorators.html
+- Implementation principle: Based on the syntax "@" and function closures, encapsulate the original function within a closure, then assign the function to a new function (inner function), and exucute the function within the inner function to perform the operation contained within the closure.
+- Implementation effect: Without altering the internal code of the original function or its invocation method, the implementation enables additional functionalities to be executed before or after the function's execution.
+- Applicable scenario: When multiple functions within a system need to uniformly incorporate custom functionalities before and after execution.
+- Code example
+```python
+import functools
+
+def decorator(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        # Before function
+        # Do something
+        value = func(*args, **kwargs)
+        # After function
+        # Do something
+        return value
+    return wrapper
+
+@decorator
+def some_func():
+    pass
+
+some_func()
+```
+> [!IMPORTANT]
+> @decorator atcually equals to some_func = decorator(some_func)
+Here is another example
+```python
+def outer(func):
+    def inner():
+        print('Before func()..')
+        func()
+        print('After func()..')
+    return inner
+
+@outer
+def hi():
+    print('Hi World')
+
+hi()
+
+# output:
+# Before func()..
+# Hi World
+# After func()..
+```
+> [!IMPORTANT]
+> @outer atcually equals to hi = outer(hi)
+One more example
+```python
+def outer(origin):
+  def inner(*args, **kwargs):
+    print('Before func()..') # before function
+    res = origin(*args, **kwargs)
+    print('After func()..') # after function
+    return res
+  return inner
+
+@outer
+def func():
+  pass
+
+func()
+```
+> [!IMPORTANT]
+> @outer atcually equals to func = outer(func)
 
 
-
-
-
-
-
+# 6. Build-in functions and comprehensions
+![Python_Function_Advanced](/_Python_full_stack/imgs/Build-in_function_and_comprehensions.PNG)
 
 
 
