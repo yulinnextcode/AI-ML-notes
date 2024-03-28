@@ -388,6 +388,86 @@ func()
 
 # 6. Build-in functions and comprehensions
 ![Python_Function_Advanced](/_Python_full_stack/imgs/Build-in_function_and_comprehensions.jpg)
+## 6.1 Anonymous Functions (lambda expression)
+Anonymous function is based on lambda expression. It can define a function without name.
+```python
+data_list = [lambda x:x+100, lambda x:x+200, lambda x:x+900]
+print(data_list[0])
+```
+```python
+f1 = lambda x:x+250
+
+res=f1(50)
+print(res)
+```
+The format of Lambda function is: lambda parameters:function_body
+- parameters, can be any data type
+```python
+lambda x1,x2: function_body
+lambda *args, **kwargs: function_body
+```
+- function_body, can only support single line code
+- return value, return the single line code's result by default.
+- Anonymous function is suitable to process simple functions.
+## 6.2 Generator
+Generator is composed by **function + yield kewword**, this can help save memory under some conditions.
+```python
+def func():
+  print(111)
+  yield 1
+```
+Assuem you are assigned to create 300w random 4-digit numbers and print out. There are two methods.
+- Create 300w numbers one time in memory
+```python
+import random
+
+data_list=[]
+for i in range(300000000):
+  val=random.randint(1000,9999)
+  data_list.append(val)    #get from data_list when use it
+```
+- Create dyanmically, one by one
+```python
+import random
+
+def gen_random_num(max_count):
+  count=0
+  while conter<max_count:
+    yield randome.randint(1000,9999)
+    counter+=1
+
+data_list=gen_randome_num(300000000)  #get from data_list when use it
+```
+Therefore when we need to create a lot of data in memory, we can use generator to create one by one to save memory.
+## 6.3 Build-in functions
+- abs, pow, sum, divmod, round
+- min, max, all, any
+- bin, oct, hex
+- ord, chr
+- int, float, str (unicode), bytes (utf-8, gbk), bool, list, dict, tuple, set
+```python
+v1 = "Jason" # text string
+v2 = v1.encode('utf-8') # byte string
+v3 = bytes(v1.encoding='utf-8') # byte string
+```
+- len, print, input, open, type, range, enumrate, id, hash, help, zip, callable, sorted
+## 6.4 Comprehensions
+Comprehensions are a very conveient method, which use one line code to create list\dict\tuple\set and initialize values. Assume we need to create a list and initialize from 0 to 299.
+```python
+data = []
+for i in range(300):
+  data.append(i)
+
+num_list=[i for i in range(10)] #Comprehensions in list
+num_set={i for i in range(10)} #Comprehensions in set
+num_dict={i:i for i in range(10)} #Comprehensions in dict
+data=(i for i in range(10)) #Comprehensions in tuple
+```
+
+
+
+
+
 
 
 
