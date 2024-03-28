@@ -463,6 +463,189 @@ num_set={i for i in range(10)} #Comprehensions in set
 num_dict={i:i for i in range(10)} #Comprehensions in dict
 data=(i for i in range(10)) #Comprehensions in tuple
 ```
+# 7 Modules
+![Modules](/_Python_full_stack/imgs/Modules.PNG)
+## 7.1 Custom modules
+We can call a single py file a **module**, we can call a folder containing many py files a **package**. Follow commons is a package, and run.py is a module.
+```
+|------commons (package)
+|         |------convert.py  
+|         |------page.py  
+|         |------utils.py  
+|------run.py (module)
+```
+> [!NOTE]
+> Under package folder, there should be a __init__.py file by default. This file is to describe current package's information. When modules are imported under this package, this will also be loaded automatically.
+## 7.2 Import
+After you create a module or package, and you want to use some of its functions, you need to import first and then use. Import is actually load module or package into memory, then grab from the memory when use it.
+If you want to import any module or package, you have to add the path then this can be founded. You can also add to specified path with sys.path
+```python
+import sys
+sys.path.append("path A")
+
+import XXX # import xxx.py under path A
+```
+- Do not use build-in modules' names
+- user can add current project path to sys.path manually
+```python
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+```
+- pycharm can add project directory to sys.path by default
+Import is actually load modules or packages to memory, then grab from memory when use it. There are two methods to import:
+- import module or import package
+- from xxx import xxx
+- from xxx.xx import xxxx as xo
+> [!NOTE]
+> Under package folder, there should be a __init__.py file by default. This file is to describe current package's information. When modules are imported under this package, this will also be loaded automatically.
+> [!IMPORTANT]
+> Please note when executing a py file and importing a py file is different
+- execute a py file
+```python
+__name__="__main__"
+```
+- import a py file
+```python
+__name__="module name"
+```
+For example, following is a file structure
+```python
+|------commons (package)
+|         |------__init__.py 
+|         |------convert.py  
+|         |------page.py  
+|         |------utils.py
+|         |------tencent
+|         |         |------__init__.py
+|         |         |------sms.py
+|------run.py (module)
+|------many.py
+
+import many
+from commons import page
+from commons import utils
+
+def start():
+  v1=many.show()
+  v2=utils.test()
+
+if__name__=='__main__':
+  start()
+```
+Run is the startpoint file. When we execute run.py, other py files are funcitonal codes. When executing run.py directly, __name__ becomes __main__. Therefore, start function can only be run when we execute run.py directly. When we import these files, start function can not be run.
+
+## 7.3 Third-party modules
+- Using pip install third-party modules.
+- If you can not find installation in pypi.org or can not pip install. You can download source codes and install
+  - Download source codes, unzip
+  - Enter directory
+  - run installation
+- wheel. This is a file format for Python's third-party modules.
+
+# 8 Build-in modules
+## 8.1 os
+```python
+import os
+
+abs_path=os.path.abspath(__file__)                    # 1. get current script's absolute path
+base_path=os.path.dirname(os.path.dirname(path))      # 2. get current folder's upper directory
+p1=os.path.join(base_path,'xx','oo','a1.png')         # 3. contact path
+exists=os.path.exists(p1)                             # 4. check exist or not  
+os.makedirs(path)                                     # 5. create directory
+is_dir=os.path.isdir(file_path)                       # 6. whether is folder
+os.remove(path)                                       # 7. delete file or folder
+data=os.listdir("/User/commons")                      # 8. get folder's all files
+data=os.walk("/User/commons/mp4")                     # 9. Current folder's all mp4
+```
+## 8.2 shutil
+```python
+import shutil
+
+path=os.path.join(base_path, 'xx')    # 1. delete folder
+shutil.rmtree(path)
+
+shutil.copytree('/Users/files')       # 2. copy folder
+
+shutil.copy('/Users/files1/1.png','/Users/files2/1.png')    # 3. copy file
+
+shutil.move('/Users/files/1.png','/Users/files/2.png')      # rename folder or file
+
+shutil.make_archive
+
+shutil.unpack_archive
+```
+## 8.3 sys
+```python
+import sys
+
+print(sys.version)
+print(sys.version_info)
+print(sys.path)
+```
+## 8.4 random
+```python
+import random
+
+v=random.randint(10,20)
+v=random.uniform(1,10)
+v=random.choice([1,2,3])
+v=random.sample([1,2,3,4,5])
+random.shuffle([1,2,3,4,5])
+```
+## 8.5 hashlib
+## 8.6 configparser
+## 8.7 xml
+## 8.8 json
+josn is a python build-in module. Can convert python data format to json, or json data format to python data format.
+| Python  | JSON |
+| ------------- | ------------- |
+| dict  | object  |
+| list, tuple  | array  |
+| str  | string  |
+| int,flost  | number  |
+| True  | true  |
+| False  | false  |
+| None  | null  |
+```python
+json.dumps
+json.loads
+json.dump
+json.load
+```
+## 8.9 time/datetime
+```python
+import time
+v1=time.time()
+
+from datetime import datetime, timezone, timedelta
+v1=datetime.now()
+```
+## 8.10 Regular expression
+- process characters
+```python
+[abc]
+[^abc]
+[a-z]
+.
+\w
+\d
+\s
+```
+- process numbers
+```python
+*
++
+?
+{n}
+{n,}
+{n,m}
+```
+- group
+# Summary
+
+
 
 
 
