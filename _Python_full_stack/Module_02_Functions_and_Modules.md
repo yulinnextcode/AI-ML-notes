@@ -643,8 +643,8 @@ v1=datetime.now()
 {n,m}
 ```
 - group
-# Summary
-
+# 9 Summary
+![Python_File_Operation](/_Python_full_stack/imgs/Module_2_summary.PNG)
 
 
 
