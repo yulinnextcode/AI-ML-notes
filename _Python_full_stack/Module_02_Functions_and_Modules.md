@@ -614,6 +614,29 @@ json.loads
 json.dump
 json.load
 ```
+- Python data type -> json format (serizlization)
+```python
+import json
+
+data = [
+  {"id":1, "name": "Alex", "age":23},
+  {"id":2, "name": "John", "age":18},
+]
+
+res = json.dumps(data)
+print(res)
+
+res = json.dumps(data, ensure_ascii=False)
+print(res)
+```
+- json format -> Python data type (anti-serialization)
+```python
+import json
+
+data_string = '[{"id": 1, "name": "Alex", "age": 18}, {"id": 2, "name": "John", "age": 27}]'
+data_list = json.loads(data_string)
+print(data_list)
+```
 ## 8.9 time/datetime
 ```python
 import time
@@ -621,9 +644,32 @@ v1=time.time()
 
 from datetime import datetime, timezone, timedelta
 v1=datetime.now()
+
+v2=time.timezone
+
+time.sleep(5)
 ```
-## 8.10 Regular expression
-- process characters
+There are three data formats for time as follows:
+- datetime
+```python
+from datetime import datetime, timezone, timedelta
+
+v1=datetime.now()
+v2=datetime.utcnow()
+```
+- string
+```python
+text = "2020-11-11"
+v1=datetime.strptime(text, '%Y-%m-%d')
+```
+- timestamp
+```python
+ctime=time.time()
+v1=datetime.formtimestamp(ctime)
+```
+## 8.10 About regular expression
+### 8.10.1 regular expression
+- 1. process characters
 ```python
 [abc]
 [^abc]
@@ -633,7 +679,7 @@ v1=datetime.now()
 \d
 \s
 ```
-- process numbers
+- 2. process numbers
 ```python
 *
 +
@@ -642,7 +688,127 @@ v1=datetime.now()
 {n,}
 {n,m}
 ```
-- group
+- 3. group
+- 4. starts (^) and ends ($)
+```python
+import re
+
+test="34235234@gmail.com"
+email_list=re.findall("^\w+@\w+.\w+$", text, re.ASCII)
+```
+- 5. special character
+Pay attentions to special characters in regular expression * . \ { } ( )
+```python
+import re
+
+text="This is {9} times"
+data=re.findall("\{9\}", "exp1")
+```
+### 8.10.2 re module
+- findall
+```python
+import re
+
+data_list=re.findall("", text)
+```
+- match
+```python
+import re
+
+data=re.match("", text)
+```
+- search
+```python
+import re
+
+data=re.search("", text)
+```
+- sub
+```python
+import re
+
+data=re.sub("", "", text)
+```
+- split
+```python
+import re
+
+data=re.split("", text)
+```python
+- finditer
+```python
+import re
+
+data=re.finditer("", text)
+```
+
+# 9 Project development specification
+## 9.1 Single file development
+```python
+"""
+File description
+"""
+
+import re
+import random
+import requests
+from openpyxl import load_workbook
+
+def do_something():
+  """ Function description """
+  # TODO, will be implemented in next step
+  for i in range(10):
+    pass
+
+def run():
+  """ Function description """
+  # Function code explaintaion
+  text=input(">>>")
+  print(text)
+
+if __name__ == '__main__':
+  run()
+```
+![Python_development_specification](/_Python_full_stack/imgs/Python_development_specification.png)
+
+## 9.2 Single executable file
+Create a new project called crm. The file structure is showns as follows:
+```python
+crm
+ |---app.py     file, mail file of the program (as concise as possible)
+ |---config.py  file, configuration file (store configuration related information, code will read configuration form here)
+ |---db         folder, store data
+ |---files      folder, store files
+ |---src        package, process functions
+ |---utils      package, common functions
+```
+![Single_python_executable_specification](/_Python_full_stack/imgs/single_executable.png)
+## 9.3 Multiple executable files
+Create a new project killer, the file structure and folders can be shonw here
+```python
+killer
+  |---bin                   folder, can store multiple files(executable)
+  |    |---app1.py          
+  |    |---app2.py
+  |---config                package, configuration files
+  |---db                    folder, store data
+  |---files                 folder, store files
+  |---src                   package, functional codes  
+  |    |---__init__.py
+  |---utils                 package, common functions
+       |---__init__.py    
+```
+![Multiple_python_executable_specification](/_Python_full_stack/imgs/multiple_executable.png)
+
+
+
+
+
+
+
+
+
+
 # 9 Summary
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_2_summary.PNG)
 
