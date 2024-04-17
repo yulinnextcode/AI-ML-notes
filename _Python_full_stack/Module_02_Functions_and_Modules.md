@@ -317,7 +317,7 @@ First find inside its own domain, then find upper domain.
 ## 5.2 Function closure
 Python closure is a nested function that allows us to access variables of the outer function even after the outer function is closed.
 ```python
-#example of function closure
+#1st example of function closure
 def task(arg):
   def inner():
     print(arg)
@@ -327,7 +327,29 @@ v1=task(11)
 v2=task(22)
 v3=task(33)
 ```
+```python
+#2nd example of function closure
 
+from concurrent.futures.thread import ThreadPoolExecutor
+
+def task():
+  pass
+
+def done(arg):
+  content=arg.result()
+
+POOL = ThreadPoolExecutor(10)
+
+video_list=[("a", "http1"),("b", "http2")]
+
+for item in video_list:
+  print(item):
+  future = POOL.submit(task, url=item[1])
+  fugure.add_down_callback(done)
+
+for item in video_list:
+  res
+```
 
 ## 5.3 Decorator
 https://python-3-patterns-idioms-test.readthedocs.io/en/latest/PythonDecorators.html
@@ -357,6 +379,7 @@ some_func()
 ```
 > [!IMPORTANT]
 > @decorator atcually equals to some_func = decorator(some_func)
+
 Here is another example
 ```python
 def outer(func):
@@ -381,7 +404,10 @@ hi()
 > @outer atcually equals to hi = outer(hi)
 One more example
 ```python
+import functools
+
 def outer(origin):
+  @functools.wraps(origin)   # inner.__name__=origin.__name__, inner.__doc__=origin.__doc__
   def inner(*args, **kwargs):
     print('Before func()..') # before function
     res = origin(*args, **kwargs)
