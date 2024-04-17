@@ -316,6 +316,19 @@ function names are variables. Function name can be assigned to other variables.
 First find inside its own domain, then find upper domain.
 ## 5.2 Function closure
 Python closure is a nested function that allows us to access variables of the outer function even after the outer function is closed.
+```python
+#example of function closure
+def task(arg):
+  def inner():
+    print(arg)
+  return inner
+
+v1=task(11)
+v2=task(22)
+v3=task(33)
+```
+
+
 ## 5.3 Decorator
 https://python-3-patterns-idioms-test.readthedocs.io/en/latest/PythonDecorators.html
 - Implementation principle: Based on the syntax "@" and function closures, encapsulate the original function within a closure, then assign the function to a new function (inner function), and exucute the function within the inner function to perform the operation contained within the closure.
