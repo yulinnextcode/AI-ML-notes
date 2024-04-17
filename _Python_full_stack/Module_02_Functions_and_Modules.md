@@ -423,6 +423,8 @@ func()
 ```
 > [!IMPORTANT]
 > @outer atcually equals to func = outer(func)
+> Based on my understanding:  func, outer anbd inner the parameters should be consistent
+> If a decorator comes with a parameter like @timeit(10), that means double = timeit(10)(double)
 
 
 # 6. Build-in functions and comprehensions
