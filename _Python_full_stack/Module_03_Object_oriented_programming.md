@@ -347,6 +347,33 @@ Encapsulation is mainly reflected in two aspects:
 ## 2.2 Inheritance
 In object-oriented programming, there is also the concept that a subclass can inherit methods and class variables from its parent class (it doesn’t copy them; the parent class still owns them, and the subclass can just inherit them).
 
+![Python_File_Operation](/_Python_full_stack/imgs/Module_3_2_2.png)
+
+```python
+class Base:
+
+    def func(self):
+        print("Base.func")
+
+class Son(Base):
+    
+    def show(self):
+        print("Son.show")
+        
+s1 = Son()
+s1.show()
+s1.func() # 优先在自己的类中找，自己没有才去父类。
+
+s2 = Base()
+s2.func()
+```
+
+> [!IMPORTANT]
+> Inhenitanec summary
+> When executing object.method, it first looks in the class associated with the current object. If not found, it then looks in its parent class.
+> Python supports multiple inheritance: it inherits from the left first, then from the right.
+> What is self? It refers to the class corresponding to self to get members. If not found, it follows the inheritance hierarchy upwards.
+
 ## 2.3 Ploymorphism
 
 
