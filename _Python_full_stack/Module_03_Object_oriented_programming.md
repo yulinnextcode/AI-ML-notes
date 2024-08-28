@@ -1,3 +1,8 @@
+<details>
+<summary><h1>0. Object_Oriented&Network&Cocurrent Programming</h1></summary>
+
+## 1.1 Module 3 introduction
+
 This module will include following three parts:
 
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_3.jpg)
@@ -25,6 +30,18 @@ This module will include following three parts:
     ```
 - Network programming
 - Concurrent programming
+
+</details>
+
+
+<details>
+<summary><h1>1. Object Oriented Fundamentals</h1></summary>
+
+## 1.1 Introduction
+
+
+</details>
+
 
 
 
