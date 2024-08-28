@@ -376,8 +376,59 @@ s2.func()
 
 ## 2.3 Ploymorphism
 
+Polymorphism, literally translated, means “many forms.”
 
+- Polymorphism in other programming languages
+- Polymorphism in Python
 
+Because Python has no restrictions on data types, it naturally supports polymorphism.
+
+```python
+def func(arg):
+    v1 = arg.copy() # 浅拷贝
+    print(v1)
+    
+func("武沛齐")
+func([11,22,33,44])
+```
+
+```python
+class Email(object):
+    def send(self):
+        print("发邮件")
+
+        
+class Message(object):
+    def send(self):
+        print("发短信")
+        
+        
+        
+def func(arg):
+    v1 = arg.send()
+    print(v1)
+    
+
+v1 = Email()
+func(v1)
+
+v2 = Message()
+func(v2)
+```
+
+## 2.4 Three main characteristics Summary
+
+- Encapsulation: Encapsulate methods into a class or encapsulate data into an object to facilitate future use.
+- Inheritance: Extract common methods from classes into a base class to implement them.
+- Polymorphism: Python inherently supports polymorphism (this approach is called duck typing). The simplest example is the following code.
+  ```python
+  def func(arg):
+      v1 = arg.copy() # 浅拷贝
+      print(v1)
+      
+  func("武沛齐")
+  func([11,22,33,44])
+  ```
 </details>
 
 
