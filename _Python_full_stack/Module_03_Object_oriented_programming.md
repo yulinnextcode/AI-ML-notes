@@ -1,3 +1,5 @@
+OOP fundamentals
+
 <details>
 <summary><h1>0. Object_Oriented&Network&Cocurrent Programming</h1></summary>
 
@@ -477,7 +479,7 @@ self is a reference to the current instance of the class. It is used to access v
 </details>
 
 
-
+OOP advanced
 
 
 
