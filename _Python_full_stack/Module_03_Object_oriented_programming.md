@@ -434,12 +434,47 @@ func(v2)
 <details>
 <summary><h1>3. Extra: Review Data Type</h1></summary>
 
+![Python_File_Operation](/_Python_full_stack/imgs/Module_3_3_1.png)
 
+After getting a basic understanding of object-oriented programming, let’s revisit what we learned earlier: str, list, dict, etc. These are all classes, and you can create different objects from these classes.
+
+
+```python
+# 实例化一个str类的对象v1
+v1 = str("武沛齐") 
+
+# 通过对象执行str类中的upper方法。
+data = v1.upper()
+
+print(data)
+```
 
 </details>
 
 
+<details>
+<summary><h1>4. Summary</h1></summary>
 
+- 1. Relationship between Classes and Objects:
+A class is a blueprint for creating objects. An object is an instance of a class. For example, if Person is a class, then person1 and person2 are objects (instances) of that class.
+- 2. Common Members in Object-Oriented Programming:
+  - Bound Methods: Methods that belong to the class and can be called through the object or the class itself.
+  - Instance Variables: Variables that belong to the object and can only be accessed through the object.
+- 3. What is self?:
+self is a reference to the current instance of the class. It is used to access variables and methods associated with the object.
+- 4. Three Main Features of Object-Oriented Programming:
+  - Encapsulation: Bundling data and methods that operate on the data into a single unit (class).
+  - Inheritance: A mechanism where a new class inherits attributes and methods from an existing class.
+  - Polymorphism: The ability to present the same interface for different underlying data types.
+- 5. Applications of Object-Oriented Programming:
+  - Data Encapsulation: Encapsulating data within an object for easier management and access.
+  - Encapsulating Data + Processing with Methods: Encapsulating data and using methods to process and manipulate the data.
+  - Creating Multiple Objects with Similar Functionality: Creating multiple objects from the same class, each with the same methods and attributes.
+- 6. Additional Information:
+  - In Python 3, all classes inherit from object by default, even if it is not explicitly stated. This makes them “new-style” classes.
+  - In Python 2, there is a distinction between “classic” classes (which do not inherit from object) and “new-style” classes (which do).
+
+</details>
 
 
 
