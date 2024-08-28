@@ -38,7 +38,13 @@ This module will include following three parts:
 <summary><h1>1. Object Oriented Fundamentals</h1></summary>
 
 ## 1.1 Introduction
-
+![Python_File_Operation](/_Python_full_stack/imgs/Module_3_1.1.jpg)
+- Introduction to Object-Oriented Programming
+- Three Main Features of Object-Oriented Programming
+  - Encapsulation
+  - Inheritance
+  - Ploymorphism
+- Revisiting Data Types
 
 </details>
 
