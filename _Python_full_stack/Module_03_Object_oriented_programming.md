@@ -1,4 +1,4 @@
-OOP Fundamentals
+
 
 <details>
 <summary><h1>0. Object_Oriented&Network&Cocurrent Programming</h1></summary>
@@ -1294,10 +1294,6 @@ An iterator object supports value retrieval through the next function. If the re
   - Iterable Objects
 
 </details>
-
-
-
-
 
 
 
