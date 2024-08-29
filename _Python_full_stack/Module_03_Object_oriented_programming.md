@@ -1,4 +1,3 @@
-OOP fundamentals
 
 <details>
 <summary><h1>0. Object_Oriented&Network&Cocurrent Programming</h1></summary>
@@ -477,10 +476,6 @@ self is a reference to the current instance of the class. It is used to access v
   - In Python 2, there is a distinction between “classic” classes (which do not inherit from object) and “new-style” classes (which do).
 
 </details>
-
-
-OOP advanced
-
 
 
 
