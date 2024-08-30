@@ -1293,26 +1293,783 @@ An iterator object supports value retrieval through the next function. If the re
   - Generators
   - Iterable Objects
 
+1. What is OOP, and why is it important in Python?
+Answer:
+
+OOP, or Object-Oriented Programming, is a programming paradigm used in many languages, including Python. In OOP, you can model real-world concepts using classes and objects. You can break down complex problems into smaller, more manageable parts. This makes the code reusable, maintainable, and scalable. 
+
+In Python, OOP is vital because it allows you to write more structured and efficient code. OOP in Python supports code reusability through inheritance. Using OOP in Python can make your development process more efficient and your code more readable.
+
+2. What is a class in Python?
+Answer:
+
+A class in Python is like a blueprint for creating objects. A class defines properties and methods that are common to all objects created from it. 
+
+In Python, you use the class keyword to define a class. 
+
+Classes help organize code by grouping related attributes and functions, promoting reusability and modularity. For instance, if you’re creating a program to manage a library, you might have classes for books, authors, and borrowers, each with its specific attributes and methods.
+
+3. What is an object in Python?
+Answer:
+
+An object in Python is an instance of a class. You can think of it as a specific realization of the blueprint provided by the class. 
+
+An object contains data in the form of attributes and code in the form of methods. When you create an object, you are essentially creating a variable that has all the properties and behaviors defined in the class. 
+
+For example, if you have a class for cars, an object could represent a specific car, such as a Honda Civic, with attributes like color and speed, and methods like start and stop.
+
+4. Bounding methods vs Class methods vs Static methods?
+Bounding methods: Bound methods have an object associated with them. 
+Class methods: Class methods are bound to the class and are usually called on the class itself, but can also be called on an instance of the class. When called on an instance, the instance is automatically passed as the first argument. Class methods are useful when you need to access class-specific data or implement factory methods. 
+Static methods: Static methods are not bound to the class or an instance of the class, and they don't have access to either the class or the instance. Static methods are similar to class level methods, but they're bound to the class instead of the class's objects. This means that you can call a static method for a class without needing an object for that class. Static methods are useful for utility functions that don't depend on class or instance state. 
+
+4. How do you create an instance of a class in Python?
+Answer:
+
+In Python, you can create a class instance by calling the class as a function and providing necessary arguments. This process is known as instantiation. Once you create an instance, you can access the attributes and methods defined in the class using the instance.
+
+5. What is the constructor in a Python class?
+In Python, a constructor is a special method that is automatically called when an object of a class is created. It is used to initialize the object's attributes.
+The constructor method in Python is named __init__.
+A constructor in Python is a special method called when an object is created. Its purpose is to assign values to the data members within the class when an object is initialized.
+
+6. What is a decorator in Python? How is it related to OOP?
+A decorator in Python is a function that you can use to modify or extend the behavior of other functions or methods without changing their code. In the context of OOP, decorators can be used to add functionality to methods within classes, such as logging or access control. 
+
+You can think of decorators as wrappers around a function or method. When you call a decorated function, the decorator’s code runs first, allowing you to perform actions before or after the original function. It helps keep the code clean and adhere to the OOP reusability principle.
+
+7. What is the purpose of the self keyword in methods?
+The self keyword in Python is used within a class to refer to the instance of the object itself. When you define a method inside a class, the first parameter is usually named self. It helps you access the attributes and methods of the class within the current object’s context.
+
+8. How is inheritance implemented in Python?
+Inheritance allows a class to inherit attributes and methods from another class. You can create a new class – known as the child class – based on an existing class – known as the parent class – and add new features or modify existing ones. 
+
+To implement inheritance in Python, you define the new class and put the name of the parent class in parentheses.
+
+9. What is the use of the super() function?
+Answer:
+
+Python’s super() function is used within a class to call a method from a parent class, often within the context of method overriding. 
+
+If you have a method in a child class with the same name as a method in the parent class, you can use super() to call the parent method within the child method. This is particularly useful when you want to extend or modify the behavior of the parent method in the child class. 
+
+By using super(), you ensure that your code follows the inheritance hierarchy. It also makes the code more maintainable, as changes in the parent class can be easily propagated to child classes.
+
+10. What is the purpose of the @property decorator?
+Answer:
+
+In Python, the @property decorator allows you to treat a method as a property of the class. By using this, you can create a “getter” method, which enables you to access a class method as though it’s an attribute without needing to write parentheses when you call it. This means you can control how the attribute is accessed without directly exposing it.
+
+12. What is a static method and how is it different from a class method?
+Answer:
+
+A static method in Python belongs to a class rather than an instance of the class. You can define it using the @staticmethod decorator. It doesn’t require reference to the class or its instance and can be called on the class itself. Unlike regular instance methods, it doesn’t take a self parameter. 
+
+A class method, on the other hand, is defined with the @classmethod decorator and takes a reference to the class itself as its first parameter – usually named “cls.” It can access and modify class-level attributes, while a static method can’t. 
+
+A class method is more versatile as subclasses can override it, whereas a static method remains unchanged.
+
+13. How do you implement abstract classes and methods in Python?
+Answer:
+
+In Python, you can implement abstract classes and methods using the ABC module. You would first import the module and then create a class that inherits from ABC, which stands for abstract base class.
+
+14. How can you prevent method overriding in Python?
+Answer:
+
+In Python, method overriding is a common feature that allows a subclass to provide a different implementation of a method defined in its superclass. However, if you want to prevent method overriding, you can do so by defining the method as private. 
+
+By prefixing the method’s name with a double underscore (__), you make it private to the class, and it cannot be overridden in a subclass.
+
+15. How does polymorphism work in Python?
+Answer:
+
+Polymorphism in Python allows different objects to be treated as instances of the same class, even if they belong to different classes. You can achieve this through inheritance, where a subclass can have methods with the same name as the methods in the superclass. 
+
+When you call a method on an object, Python will automatically use the correct method based on the object’s class, even if the object is referred to by a variable of the superclass type. 
+
+This enables more flexible and reusable code, as you can write functions that work with different classes, provided they adhere to the same interface or method signature.
+
+16. what is interfaces in python
+https://realpython.com/python-interface/
+https://stackoverflow.com/questions/2124190/how-do-i-implement-interfaces-in-python
+https://medium.com/@shashikantrbl123/interfaces-and-abstract-classes-in-python-understanding-the-differences-3e5889a0746a
+https://discuss.python.org/t/difference-between-interface-and-abstracts/33315
+
+17. What is Python design pattern?
+设计模式是一套被广泛接受且行之有效的编程经验。它提供了一组通用的解决方案，可以应用于各种编程场景。设计模式的出现是为了解决软件开发中的一些常见问题，如代码重用、系统可扩展性、代码可读性等。
+使用设计模式的好处如下：
+
+代码复用：通过使用设计模式，可以将代码分解和组合以实现代码复用。
+系统可扩展性：设计模式可以使系统更加灵活，易于扩展，并且能够适应不同的需求。
+代码可读性：使用设计模式可以提高代码的可读性，使代码更加清晰。
+
+
+https://www.testgorilla.com/blog/python-oops-interview-questions/
+https://medium.com/@edwinvarghese4442/top-oops-questions-asked-in-python-interviews-8bd01623e6f5
+https://www.geeksforgeeks.org/oops-interview-questions/
+https://www.mygreatlearning.com/blog/oops-interview-questions/
+https://medium.com/@mohsin.shaikh324/50-essential-questions-on-python-object-oriented-programming-oop-98f9605ca95f
+https://www.simplilearn.com/tutorials/java-tutorial/oops-interview-questions
+https://www.foundit.in/career-advice/python-oops-interview-questions/
+https://www.interviewbit.com/oops-interview-questions/
+
 </details>
 
 
+<details>
+<summary><h1>11. OOP Advanced and Applications</h1></summary>
+![Python_File_Operation](/_Python_full_stack/imgs/Module_3_11_1.png)
+
+Objective: Master advanced object-oriented knowledge and related applications.
+- Inheritance [Supplement]
+- Built-in Functions [Supplement]
+- Exception Handling
+- Reflection
+
+</details>
+
+<details>
+<summary><h1>12. Inheritance (Supplement)</h1></summary>
+
+Objective: Master advanced object-oriented knowledge and related applications.
+- Significance of Inheritance: Extracting common methods into the parent class helps increase code reusability.
+- Inheritance Syntax:
+
+## 12.1 mro and c3 algorithm
+```python
+class C(object):
+    pass
+
+class B(object):
+    pass
+
+class A(B, C):
+    pass
+
+print( A.mro() )   # [<class '__main__.A'>, <class '__main__.B'>, <class '__main__.C'>, <class 'object'>]
+print( A.__mro__ ) # (<class '__main__.A'>, <class '__main__.B'>, <class '__main__.C'>, <class 'object'>)
+```
+
+```python
+class D(object):
+    pass
 
 
+class C(object):
+    pass
 
 
+class B(D):
+    pass
 
 
+class A(B, C):
+    pass
 
 
+print(A.mro()) # [<class '__main__.A'>, <class '__main__.B'>, <class '__main__.D'>, <class '__main__.C'>, <class 'object'>]
+```
+
+Special Supplement: One Sentence to Handle Inheritance Relationships
+
+Have you noticed that analyzing a class inheritance relationship using the formal C3 algorithm rules can be a bit cumbersome, especially when dealing with a complex class?
+
+</details>
 
 
+<details>
+<summary><h1>13. Supplement on Built-in Functions</h1></summary>
+	
+Will explain 8 built-in functions, all of which are related to object-oriented knowledge.
+
+- classmethod、staticmethod、property 。
+- callable，Can parentheses be added for execution?
+  - function
+  - class
+  - objects which class has __call__ method
+
+ - super, Find upper level members according to the MRO (Method Resolution Order) inheritance relationship.
+
+  ```python
+  class Top(object):
+      def message(self, num):
+          print("Top.message", num)
+          
+  class Base(Top):
+      pass
+  
+  class Foo(Base):
+  
+      def message(self, num):
+          print("Foo.message", num)
+          super().message(num + 100)
+  
+  
+  obj = Foo()
+  obj.message(1)
+  
+  >>> Foo.message 1
+  >>> Top.message 101
+  ```
+
+> [!IMPORTANT]
+> Application: Suppose there is a class that has already implemented certain functions, but we want to extend its functionality further. Rewriting it from scratch would be quite troublesome. In this case, we can use super.
+```python
+  info = dict() # {}
+  info['name'] = "武沛齐"
+  info["age"] = 18
+  
+  value = info.get("age")
+  
+  print(value)
+  ```
+
+  ```python
+  class MyDict(dict):
+  
+      def get(self, k):
+          print("自定义功能")
+          return super().get(k)
+  
+  
+  info = MyDict()
+  info['name'] = "武沛齐" # __setitem__
+  info["age"] = 18       # __setitem__
+  print(info)
+  
+  value = info.get("age")
+  
+  print(value)
+```
+
+ - type, get an object's type
+  ```python
+  v1 = "武沛齐"
+  result = type(v1)
+  print(result) # <class 'str'>
+  ```
+ - isinstance, Determine whether an object is an instance of a class or its subclass.
+  ```python
+  class Top(object):
+      pass
+  
+  
+  class Base(Top):
+      pass
+  
+  
+  class Foo(Base):
+      pass
+  
+  
+  v1 = Foo()
+  
+  print( isinstance(v1, Foo) )   # True，对象v1是Foo类的实例
+  print( isinstance(v1, Base) )  # True，对象v1的Base子类的实例。
+  print( isinstance(v1, Top) )   # True，对象v1的Top子类的实例。
+  ```
+
+ - issubclass, Determine whether a class is a descendant of another class.
+
+  ```python
+  class Top(object):
+      pass
+  
+  
+  class Base(Top):
+      pass
+  
+  
+  class Foo(Base):
+      pass
+  
+  
+  print(issubclass(Foo, Base))  # True
+  print(issubclass(Foo, Top))   # True
+  ```
+
+</details>
 
 
+<details>
+<summary><h1>14. Exception Handling</h1></summary>
+
+```python
+import requests
+
+while True:
+    url = input("请输入要下载网页地址：")
+    res = requests.get(url=url)
+    with open('content.txt', mode='wb') as f:
+        f.write(res.content)
+```
+
+上述下载视频的代码在正常情况下可以运行，但如果遇到网络出问题，那么此时程序就会报错无法正常执行。
+
+```python
+import requests
+
+while True:
+    url = input("请输入要下载网页地址：")
+    
+    try:
+        res = requests.get(url=url)
+    except Exception as e:
+        print("请求失败，原因：{}".format(str(e)))
+        continue
+        
+    with open('content.txt', mode='wb') as f:
+        f.write(res.content)
+```
+
+Common application scenarios in the future:
+- Calling WeChat API: Implementing WeChat message push and WeChat Pay.
+- Alipay payment and video playback.
+- Database or Redis connection and operation.
+- Calling third-party video playback functions and handling errors caused by issues in third-party programs.
+
+异常处理的基本格式：
+
+```python
+try:
+    # 逻辑代码
+except Exception as e:
+    # try中的代码如果有异常，则此代码块中的代码会执行。
+```
+
+```python
+try:
+    # 逻辑代码
+except Exception as e:
+    # try中的代码如果有异常，则此代码块中的代码会执行。
+finally:
+    # try中的代码无论是否报错，finally中的代码都会执行，一般用于释放资源。
+
+print("end")
+"""
+try:
+    file_object = open("xxx.log")
+    # ....
+except Exception as e:
+    # 异常处理
+finally:
+    file_object.close()  # try中没异常，最后执行finally关闭文件；try有异常，执行except中的逻辑，最后再执行finally关闭文件。
+"""    
+```
 
 
+## 14.1 Exception Details
+
+reviously, we simply caught exceptions and displayed a unified message when an exception occurred. If you want to handle exceptions in a more detailed manner, you can do the following:
+```python
+import requests
+from requests import exceptions
+
+while True:
+    url = input("请输入要下载网页地址：")
+    try:
+        res = requests.get(url=url)
+        print(res)    
+    except exceptions.MissingSchema as e:
+        print("URL架构不存在")
+    except exceptions.InvalidSchema as e:
+        print("URL架构错误")
+    except exceptions.InvalidURL as e:
+        print("URL地址格式错误")
+    except exceptions.ConnectionError as e:
+        print("网络连接错误")
+    except Exception as e:
+        print("代码出现错误", e)
+        
+# 提示：如果想要写的简单一点，其实只写一个Exception捕获错误就可以了。
+```
+Python中内置了很多细分的错误，供你选择。
+
+```python
+常见异常：
+"""
+AttributeError 试图访问一个对象没有的树形，比如foo.x，但是foo没有属性x
+IOError 输入/输出异常；基本上是无法打开文件
+ImportError 无法引入模块或包；基本上是路径问题或名称错误
+IndentationError 语法错误（的子类） ；代码没有正确对齐
+IndexError 下标索引超出序列边界，比如当x只有三个元素，却试图访问n x[5]
+KeyError 试图访问字典里不存在的键 inf['xx']
+KeyboardInterrupt Ctrl+C被按下
+NameError 使用一个还未被赋予对象的变量
+SyntaxError Python代码非法，代码不能编译(个人认为这是语法错误，写错了）
+TypeError 传入对象类型与要求的不符合
+UnboundLocalError 试图访问一个还未被设置的局部变量，基本上是由于另有一个同名的全局变量，
+导致你以为正在访问它
+ValueError 传入一个调用者不期望的值，即使值的类型是正确的
+"""
+更多异常：
+"""
+ArithmeticError
+AssertionError
+AttributeError
+BaseException
+BufferError
+BytesWarning
+DeprecationWarning
+EnvironmentError
+EOFError
+Exception
+FloatingPointError
+FutureWarning
+GeneratorExit
+ImportError
+ImportWarning
+IndentationError
+IndexError
+IOError
+KeyboardInterrupt
+KeyError
+LookupError
+MemoryError
+NameError
+NotImplementedError
+OSError
+OverflowError
+PendingDeprecationWarning
+ReferenceError
+RuntimeError
+RuntimeWarning
+StandardError
+StopIteration
+SyntaxError
+SyntaxWarning
+SystemError
+SystemExit
+TabError
+TypeError
+UnboundLocalError
+UnicodeDecodeError
+UnicodeEncodeError
+UnicodeError
+UnicodeTranslateError
+UnicodeWarning
+UserWarning
+ValueError
+Warning
+ZeroDivisionError
+"""
+```
+
+## 14.2 Self-define Exception
+
+Actually, in development, you can also create custom exceptions.
+```python
+class MyException(Exception):
+    pass
+```
+
+```python
+try:
+    pass
+except MyException as e:
+    print("MyException异常被触发了", e)
+except Exception as e:
+    print("Exception", e)
+```
+
+The above code defines catching the MyException exception in the except block, but it will never be triggered. This is because the default exceptions have specific triggering conditions, such as IndexError and KeyError being triggered when an index or key does not exist.
+
+For our custom exceptions, if we want to trigger them, we need to use the raise MyException() class implementation.
+```python
+class MyException(Exception):
+    pass
 
 
+try:
+    # 。。。
+    raise MyException()   # Trigger
+    # 。。。Will not be run if the above function is triggered
+except MyException as e:
+    print("MyException异常被触发了", e)
+except Exception as e:
+    print("Exception", e)
+```
 
+Another example
+```python
+class MyException(Exception):
+    def __init__(self, msg, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.msg = msg
+
+
+try:
+    raise MyException("xxx失败了")
+except MyException as e:
+    print("MyException异常被触发了", e.msg)
+except Exception as e:
+    print("Exception", e)
+```
+Another example
+```python
+class MyException(Exception):
+    title = "请求错误"
+
+
+try:
+    raise MyException()
+except MyException as e:
+    print("MyException异常被触发了", e.title)
+except Exception as e:
+    print("Exception", e)
+```
+
+### 案例一：你我合作协同开发，你调用我写的方法。
+
+- 我定义了一个函数
+
+```python
+  class EmailValidError(Exception):
+      title = "邮箱格式错误"
+  
+  class ContentRequiredError(Exception):
+      title = "文本不能为空错误"
+      
+  def send_email(email,content):
+      if not re.match("\w+@live.com",email):
+          raise EmailValidError()
+  	if len(content) == 0 :
+          raise ContentRequiredError()
+  	# 发送邮件代码...
+      # ...
+```
+  
+### 案例二：在框架内部已经定义好，遇到什么样的错误都会触发不同的异常。
+
+```python
+import requests
+from requests import exceptions
+
+while True:
+    url = input("请输入要下载网页地址：")
+    try:
+        res = requests.get(url=url)
+        print(res)    
+    except exceptions.MissingSchema as e:
+        print("URL架构不存在")
+    except exceptions.InvalidSchema as e:
+        print("URL架构错误")
+    except exceptions.InvalidURL as e:
+        print("URL地址格式错误")
+    except exceptions.ConnectionError as e:
+        print("网络连接错误")
+    except Exception as e:
+        print("代码出现错误", e)
+        
+# 提示：如果想要写的简单一点，其实只写一个Exception捕获错误就可以了。
+```
+
+
+## 14.3 Finally
+```python
+try:
+    # 逻辑代码
+except Exception as e:
+    # try中的代码如果有异常，则此代码块中的代码会执行。
+finally:
+    # try中的代码无论是否报错，finally中的代码都会执行，一般用于释放资源。
+
+print("end")
+```
+
+When defining exception handling code in functions or methods, pay special attention to finally and return.
+
+```python
+def func():
+    try:
+        return 123          # Even if return is defined in the try or except block, the code in the finally block will still be executed.
+    except Exception as e:
+        pass
+    finally:
+        print(666)          # Even if return is defined in the try or except block, the code in the finally block will still be executed.
+        
+func()
+```
+</details>
+
+<details>
+<summary><h1>15. Reflection</h1></summary>
+Reflection provides a more flexible way to operate on members within an object (by manipulating members within the object in the form of strings).
+	
+```python
+user = Person("武沛齐","wupeiqi666")
+
+getattr 获取成员
+getattr(user,"name") # user.name
+getattr(user,"wx")   # user.wx
+
+
+method = getattr(user,"show") # user.show
+method()
+或
+getattr(user,"show")()
+
+setattr 设置成员
+setattr(user, "name", "吴培期") # user.name = "吴培期"
+```
+
+Reflection provides a more flexible way to operate on members within an object (by manipulating members within the object in the form of strings).
+
+- getattr，去对象中获取成员
+
+  ```
+  v1 = getattr(对象,"成员名称")
+  v2 = getattr(对象,"成员名称", 不存在时的默认值)
+  ```
+
+- setattr，去对象中设置成员
+
+  ```
+  setattr(对象,"成员名称",值)
+  ```
+
+- hasattr，对象中是否包含成员
+
+  ```
+  v1 = hasattr(对象,"成员名称") # True/False
+  ```
+
+- delattr，删除对象中的成员
+
+  ```
+  delattr(对象,"成员名称")
+  ```
+> [!IMPORTANT]
+> In the future, if you encounter the object.member way of writing, you can implement it based on reflection.
+
+
+## 15.1 Everything is Object
+- 对象是对象
+
+  ```python
+  class Person(object):
+      
+      def __init__(self,name,wx):
+          self.name = name
+          self.wx = wx
+  	
+      def show(self):
+          message = "姓名{}，微信：{}".format(self.name,self.wx)
+          
+          
+  user_object = Person("武沛齐","wupeiqi666")
+  user_object.name
+  ```
+
+- 类是对象
+
+  ```python
+  class Person(object):
+      title = "武沛齐"
+  
+  Person.title
+  # Person类也是一个对象（平时不这么称呼）
+  ```
+
+- 模块是对象
+
+  ```python
+  import re
+  
+  re.match
+  # re模块也是一个对象（平时不这么称呼）。
+  ```
+
+Simply put: whenever you see xx.oo, you can implement it using reflection.
+
+## 15.2 Import_module + reflection
+
+In Python, if you want to import a module, you can use the import syntax; you can also import it in the form of a string.
+
+Example 1:
+
+```python
+# 导入模块
+import random
+
+v1 = random.randint(1,100)
+```
+
+or
+
+```python
+# 导入模块
+from importlib import import_module
+
+m = import_module("random")
+
+v1 = m.randint(1,100)
+```
+
+Example 2:
+
+```python
+# 导入模块exceptions
+from requests import exceptions as m
+```
+
+```python
+# 导入模块exceptions
+from importlib import import_module
+m = import_module("requests.exceptions")
+```
+
+Example 3:
+
+```python
+# 导入模块exceptions，获取exceptions中的InvalidURL类。
+from requests.exceptions import InvalidURL
+```
+
+or
+
+```python
+# 导入模块
+from importlib import import_module
+m = import_module("requests.exceptions.InvalidURL") # 报错，import_module只能导入到模块级别(py file)。
+m = import_module("requests.exceptions")
+# 去模块中获取类
+cls = m.InvalidURL
+```
+
+In many project source codes, import_module and getattr are often used together to import modules and retrieve members based on strings(在很多项目的源码中都会有 `import_module` 和 `getattr` 配合实现根据字符串的形式导入模块并获取成员), for example:
+
+```python
+from importlib import import_module
+
+path = "openpyxl.utils.exceptions.InvalidFileException"
+
+module_path,class_name = path.rsplit(".",maxsplit=1) # "openpyxl.utils.exceptions"   "InvalidFileException"
+
+module_object = import_module(module_path)
+
+cls = getattr(module_object,class_name)
+
+print(cls)
+```
+
+</details>
+
+<details>
+<summary><h1>16. Summary</h1></summary>
+
+
+- Understand MRO and C3 algorithm.
+- Differences between Python 2 and Python 3 in object-oriented programming.
+- Built-in functions: staticmethod, classmethod, property, callable, type, isinstance, issubclass, super
+getattr, setattr, hasattr, delattr
+
+- Exception handling.
+- Import modules in the form of strings using import_module.
+- Operate members in the form of strings using reflection - getattr, setattr, hasattr, delattr.
+
+</details>
 
 
 
