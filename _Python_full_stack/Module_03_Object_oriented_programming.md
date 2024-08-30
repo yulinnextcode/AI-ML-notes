@@ -1418,26 +1418,658 @@ https://www.interviewbit.com/oops-interview-questions/
 
 
 <details>
-<summary><h1>11. OOP Advanced</h1></summary>
+<summary><h1>11. OOP Advanced and Applications</h1></summary>
+![Python_File_Operation](/_Python_full_stack/imgs/Module_3_11_1.png)
 
+Objective: Master advanced object-oriented knowledge and related applications.
+- Inheritance [Supplement]
+- Built-in Functions [Supplement]
+- Exception Handling
+- Reflection
+
+</details>
+
+<details>
+<summary><h1>12. Inheritance (Supplement)</h1></summary>
+
+Objective: Master advanced object-oriented knowledge and related applications.
+- Significance of Inheritance: Extracting common methods into the parent class helps increase code reusability.
+- Inheritance Syntax:
+
+## 12.1 mro and c3 algorithm
+```python
+class C(object):
+    pass
+
+class B(object):
+    pass
+
+class A(B, C):
+    pass
+
+print( A.mro() )   # [<class '__main__.A'>, <class '__main__.B'>, <class '__main__.C'>, <class 'object'>]
+print( A.__mro__ ) # (<class '__main__.A'>, <class '__main__.B'>, <class '__main__.C'>, <class 'object'>)
+```
+
+```python
+class D(object):
+    pass
+
+
+class C(object):
+    pass
+
+
+class B(D):
+    pass
+
+
+class A(B, C):
+    pass
+
+
+print(A.mro()) # [<class '__main__.A'>, <class '__main__.B'>, <class '__main__.D'>, <class '__main__.C'>, <class 'object'>]
+```
+
+Special Supplement: One Sentence to Handle Inheritance Relationships
+
+Have you noticed that analyzing a class inheritance relationship using the formal C3 algorithm rules can be a bit cumbersome, especially when dealing with a complex class?
 
 </details>
 
 
+<details>
+<summary><h1>13. Supplement on Built-in Functions</h1></summary>
+	
+Will explain 8 built-in functions, all of which are related to object-oriented knowledge.
+
+- classmethod、staticmethod、property 。
+- callable，Can parentheses be added for execution?
+  - function
+  - class
+  - objects which class has __call__ method
+
+ - super, Find upper level members according to the MRO (Method Resolution Order) inheritance relationship.
+
+  ```python
+  class Top(object):
+      def message(self, num):
+          print("Top.message", num)
+          
+  class Base(Top):
+      pass
+  
+  class Foo(Base):
+  
+      def message(self, num):
+          print("Foo.message", num)
+          super().message(num + 100)
+  
+  
+  obj = Foo()
+  obj.message(1)
+  
+  >>> Foo.message 1
+  >>> Top.message 101
+  ```
+
+> [!IMPORTANT]
+> Application: Suppose there is a class that has already implemented certain functions, but we want to extend its functionality further. Rewriting it from scratch would be quite troublesome. In this case, we can use super.
+```python
+  info = dict() # {}
+  info['name'] = "武沛齐"
+  info["age"] = 18
+  
+  value = info.get("age")
+  
+  print(value)
+  ```
+
+  ```python
+  class MyDict(dict):
+  
+      def get(self, k):
+          print("自定义功能")
+          return super().get(k)
+  
+  
+  info = MyDict()
+  info['name'] = "武沛齐" # __setitem__
+  info["age"] = 18       # __setitem__
+  print(info)
+  
+  value = info.get("age")
+  
+  print(value)
+```
+
+ - type, get an object's type
+  ```python
+  v1 = "武沛齐"
+  result = type(v1)
+  print(result) # <class 'str'>
+  ```
+ - isinstance, Determine whether an object is an instance of a class or its subclass.
+  ```python
+  class Top(object):
+      pass
+  
+  
+  class Base(Top):
+      pass
+  
+  
+  class Foo(Base):
+      pass
+  
+  
+  v1 = Foo()
+  
+  print( isinstance(v1, Foo) )   # True，对象v1是Foo类的实例
+  print( isinstance(v1, Base) )  # True，对象v1的Base子类的实例。
+  print( isinstance(v1, Top) )   # True，对象v1的Top子类的实例。
+  ```
+
+ - issubclass, Determine whether a class is a descendant of another class.
+
+  ```python
+  class Top(object):
+      pass
+  
+  
+  class Base(Top):
+      pass
+  
+  
+  class Foo(Base):
+      pass
+  
+  
+  print(issubclass(Foo, Base))  # True
+  print(issubclass(Foo, Top))   # True
+  ```
+
+</details>
 
 
+<details>
+<summary><h1>14. Exception Handling</h1></summary>
+
+```python
+import requests
+
+while True:
+    url = input("请输入要下载网页地址：")
+    res = requests.get(url=url)
+    with open('content.txt', mode='wb') as f:
+        f.write(res.content)
+```
+
+上述下载视频的代码在正常情况下可以运行，但如果遇到网络出问题，那么此时程序就会报错无法正常执行。
+
+```python
+import requests
+
+while True:
+    url = input("请输入要下载网页地址：")
+    
+    try:
+        res = requests.get(url=url)
+    except Exception as e:
+        print("请求失败，原因：{}".format(str(e)))
+        continue
+        
+    with open('content.txt', mode='wb') as f:
+        f.write(res.content)
+```
+
+Common application scenarios in the future:
+- Calling WeChat API: Implementing WeChat message push and WeChat Pay.
+- Alipay payment and video playback.
+- Database or Redis connection and operation.
+- Calling third-party video playback functions and handling errors caused by issues in third-party programs.
+
+异常处理的基本格式：
+
+```python
+try:
+    # 逻辑代码
+except Exception as e:
+    # try中的代码如果有异常，则此代码块中的代码会执行。
+```
+
+```python
+try:
+    # 逻辑代码
+except Exception as e:
+    # try中的代码如果有异常，则此代码块中的代码会执行。
+finally:
+    # try中的代码无论是否报错，finally中的代码都会执行，一般用于释放资源。
+
+print("end")
+"""
+try:
+    file_object = open("xxx.log")
+    # ....
+except Exception as e:
+    # 异常处理
+finally:
+    file_object.close()  # try中没异常，最后执行finally关闭文件；try有异常，执行except中的逻辑，最后再执行finally关闭文件。
+"""    
+```
 
 
+## 14.1 Exception Details
+
+reviously, we simply caught exceptions and displayed a unified message when an exception occurred. If you want to handle exceptions in a more detailed manner, you can do the following:
+```python
+import requests
+from requests import exceptions
+
+while True:
+    url = input("请输入要下载网页地址：")
+    try:
+        res = requests.get(url=url)
+        print(res)    
+    except exceptions.MissingSchema as e:
+        print("URL架构不存在")
+    except exceptions.InvalidSchema as e:
+        print("URL架构错误")
+    except exceptions.InvalidURL as e:
+        print("URL地址格式错误")
+    except exceptions.ConnectionError as e:
+        print("网络连接错误")
+    except Exception as e:
+        print("代码出现错误", e)
+        
+# 提示：如果想要写的简单一点，其实只写一个Exception捕获错误就可以了。
+```
+Python中内置了很多细分的错误，供你选择。
+
+```python
+常见异常：
+"""
+AttributeError 试图访问一个对象没有的树形，比如foo.x，但是foo没有属性x
+IOError 输入/输出异常；基本上是无法打开文件
+ImportError 无法引入模块或包；基本上是路径问题或名称错误
+IndentationError 语法错误（的子类） ；代码没有正确对齐
+IndexError 下标索引超出序列边界，比如当x只有三个元素，却试图访问n x[5]
+KeyError 试图访问字典里不存在的键 inf['xx']
+KeyboardInterrupt Ctrl+C被按下
+NameError 使用一个还未被赋予对象的变量
+SyntaxError Python代码非法，代码不能编译(个人认为这是语法错误，写错了）
+TypeError 传入对象类型与要求的不符合
+UnboundLocalError 试图访问一个还未被设置的局部变量，基本上是由于另有一个同名的全局变量，
+导致你以为正在访问它
+ValueError 传入一个调用者不期望的值，即使值的类型是正确的
+"""
+更多异常：
+"""
+ArithmeticError
+AssertionError
+AttributeError
+BaseException
+BufferError
+BytesWarning
+DeprecationWarning
+EnvironmentError
+EOFError
+Exception
+FloatingPointError
+FutureWarning
+GeneratorExit
+ImportError
+ImportWarning
+IndentationError
+IndexError
+IOError
+KeyboardInterrupt
+KeyError
+LookupError
+MemoryError
+NameError
+NotImplementedError
+OSError
+OverflowError
+PendingDeprecationWarning
+ReferenceError
+RuntimeError
+RuntimeWarning
+StandardError
+StopIteration
+SyntaxError
+SyntaxWarning
+SystemError
+SystemExit
+TabError
+TypeError
+UnboundLocalError
+UnicodeDecodeError
+UnicodeEncodeError
+UnicodeError
+UnicodeTranslateError
+UnicodeWarning
+UserWarning
+ValueError
+Warning
+ZeroDivisionError
+"""
+```
+
+## 14.2 Self-define Exception
+
+Actually, in development, you can also create custom exceptions.
+```python
+class MyException(Exception):
+    pass
+```
+
+```python
+try:
+    pass
+except MyException as e:
+    print("MyException异常被触发了", e)
+except Exception as e:
+    print("Exception", e)
+```
+
+The above code defines catching the MyException exception in the except block, but it will never be triggered. This is because the default exceptions have specific triggering conditions, such as IndexError and KeyError being triggered when an index or key does not exist.
+
+For our custom exceptions, if we want to trigger them, we need to use the raise MyException() class implementation.
+```python
+class MyException(Exception):
+    pass
 
 
+try:
+    # 。。。
+    raise MyException()   # Trigger
+    # 。。。Will not be run if the above function is triggered
+except MyException as e:
+    print("MyException异常被触发了", e)
+except Exception as e:
+    print("Exception", e)
+```
+
+Another example
+```python
+class MyException(Exception):
+    def __init__(self, msg, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.msg = msg
 
 
+try:
+    raise MyException("xxx失败了")
+except MyException as e:
+    print("MyException异常被触发了", e.msg)
+except Exception as e:
+    print("Exception", e)
+```
+Another example
+```python
+class MyException(Exception):
+    title = "请求错误"
 
 
+try:
+    raise MyException()
+except MyException as e:
+    print("MyException异常被触发了", e.title)
+except Exception as e:
+    print("Exception", e)
+```
+
+### 案例一：你我合作协同开发，你调用我写的方法。
+
+- 我定义了一个函数
+
+```python
+  class EmailValidError(Exception):
+      title = "邮箱格式错误"
+  
+  class ContentRequiredError(Exception):
+      title = "文本不能为空错误"
+      
+  def send_email(email,content):
+      if not re.match("\w+@live.com",email):
+          raise EmailValidError()
+  	if len(content) == 0 :
+          raise ContentRequiredError()
+  	# 发送邮件代码...
+      # ...
+```
+  
+### 案例二：在框架内部已经定义好，遇到什么样的错误都会触发不同的异常。
+
+```python
+import requests
+from requests import exceptions
+
+while True:
+    url = input("请输入要下载网页地址：")
+    try:
+        res = requests.get(url=url)
+        print(res)    
+    except exceptions.MissingSchema as e:
+        print("URL架构不存在")
+    except exceptions.InvalidSchema as e:
+        print("URL架构错误")
+    except exceptions.InvalidURL as e:
+        print("URL地址格式错误")
+    except exceptions.ConnectionError as e:
+        print("网络连接错误")
+    except Exception as e:
+        print("代码出现错误", e)
+        
+# 提示：如果想要写的简单一点，其实只写一个Exception捕获错误就可以了。
+```
 
 
+## 14.3 Finally
+```python
+try:
+    # 逻辑代码
+except Exception as e:
+    # try中的代码如果有异常，则此代码块中的代码会执行。
+finally:
+    # try中的代码无论是否报错，finally中的代码都会执行，一般用于释放资源。
+
+print("end")
+```
+
+When defining exception handling code in functions or methods, pay special attention to finally and return.
+
+```python
+def func():
+    try:
+        return 123          # Even if return is defined in the try or except block, the code in the finally block will still be executed.
+    except Exception as e:
+        pass
+    finally:
+        print(666)          # Even if return is defined in the try or except block, the code in the finally block will still be executed.
+        
+func()
+```
+</details>
+
+<details>
+<summary><h1>15. Reflection</h1></summary>
+Reflection provides a more flexible way to operate on members within an object (by manipulating members within the object in the form of strings).
+	
+```python
+user = Person("武沛齐","wupeiqi666")
+
+getattr 获取成员
+getattr(user,"name") # user.name
+getattr(user,"wx")   # user.wx
 
 
+method = getattr(user,"show") # user.show
+method()
+或
+getattr(user,"show")()
+
+setattr 设置成员
+setattr(user, "name", "吴培期") # user.name = "吴培期"
+```
+
+Reflection provides a more flexible way to operate on members within an object (by manipulating members within the object in the form of strings).
+
+- getattr，去对象中获取成员
+
+  ```
+  v1 = getattr(对象,"成员名称")
+  v2 = getattr(对象,"成员名称", 不存在时的默认值)
+  ```
+
+- setattr，去对象中设置成员
+
+  ```
+  setattr(对象,"成员名称",值)
+  ```
+
+- hasattr，对象中是否包含成员
+
+  ```
+  v1 = hasattr(对象,"成员名称") # True/False
+  ```
+
+- delattr，删除对象中的成员
+
+  ```
+  delattr(对象,"成员名称")
+  ```
+> [!IMPORTANT]
+> In the future, if you encounter the object.member way of writing, you can implement it based on reflection.
+
+
+## 15.1 Everything is Object
+- 对象是对象
+
+  ```python
+  class Person(object):
+      
+      def __init__(self,name,wx):
+          self.name = name
+          self.wx = wx
+  	
+      def show(self):
+          message = "姓名{}，微信：{}".format(self.name,self.wx)
+          
+          
+  user_object = Person("武沛齐","wupeiqi666")
+  user_object.name
+  ```
+
+- 类是对象
+
+  ```python
+  class Person(object):
+      title = "武沛齐"
+  
+  Person.title
+  # Person类也是一个对象（平时不这么称呼）
+  ```
+
+- 模块是对象
+
+  ```python
+  import re
+  
+  re.match
+  # re模块也是一个对象（平时不这么称呼）。
+  ```
+
+Simply put: whenever you see xx.oo, you can implement it using reflection.
+
+## 15.2 Import_module + reflection
+
+In Python, if you want to import a module, you can use the import syntax; you can also import it in the form of a string.
+
+Example 1:
+
+```python
+# 导入模块
+import random
+
+v1 = random.randint(1,100)
+```
+
+or
+
+```python
+# 导入模块
+from importlib import import_module
+
+m = import_module("random")
+
+v1 = m.randint(1,100)
+```
+
+Example 2:
+
+```python
+# 导入模块exceptions
+from requests import exceptions as m
+```
+
+```python
+# 导入模块exceptions
+from importlib import import_module
+m = import_module("requests.exceptions")
+```
+
+Example 3:
+
+```python
+# 导入模块exceptions，获取exceptions中的InvalidURL类。
+from requests.exceptions import InvalidURL
+```
+
+or
+
+```python
+# 导入模块
+from importlib import import_module
+m = import_module("requests.exceptions.InvalidURL") # 报错，import_module只能导入到模块级别(py file)。
+m = import_module("requests.exceptions")
+# 去模块中获取类
+cls = m.InvalidURL
+```
+
+In many project source codes, import_module and getattr are often used together to import modules and retrieve members based on strings(在很多项目的源码中都会有 `import_module` 和 `getattr` 配合实现根据字符串的形式导入模块并获取成员), for example:
+
+```python
+from importlib import import_module
+
+path = "openpyxl.utils.exceptions.InvalidFileException"
+
+module_path,class_name = path.rsplit(".",maxsplit=1) # "openpyxl.utils.exceptions"   "InvalidFileException"
+
+module_object = import_module(module_path)
+
+cls = getattr(module_object,class_name)
+
+print(cls)
+```
+
+</details>
+
+<details>
+<summary><h1>16. Summary</h1></summary>
+
+
+- Understand MRO and C3 algorithm.
+- Differences between Python 2 and Python 3 in object-oriented programming.
+- Built-in functions: staticmethod, classmethod, property, callable, type, isinstance, issubclass, super
+getattr, setattr, hasattr, delattr
+
+- Exception handling.
+- Import modules in the form of strings using import_module.
+- Operate members in the form of strings using reflection - getattr, setattr, hasattr, delattr.
+
+</details>
 
 
 
