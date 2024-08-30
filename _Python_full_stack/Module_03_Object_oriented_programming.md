@@ -1389,6 +1389,31 @@ Polymorphism in Python allows different objects to be treated as instances of th
 When you call a method on an object, Python will automatically use the correct method based on the object’s class, even if the object is referred to by a variable of the superclass type. 
 
 This enables more flexible and reusable code, as you can write functions that work with different classes, provided they adhere to the same interface or method signature.
+
+16. what is interfaces in python
+https://realpython.com/python-interface/
+https://stackoverflow.com/questions/2124190/how-do-i-implement-interfaces-in-python
+https://medium.com/@shashikantrbl123/interfaces-and-abstract-classes-in-python-understanding-the-differences-3e5889a0746a
+https://discuss.python.org/t/difference-between-interface-and-abstracts/33315
+
+17. What is Python design pattern?
+设计模式是一套被广泛接受且行之有效的编程经验。它提供了一组通用的解决方案，可以应用于各种编程场景。设计模式的出现是为了解决软件开发中的一些常见问题，如代码重用、系统可扩展性、代码可读性等。
+使用设计模式的好处如下：
+
+代码复用：通过使用设计模式，可以将代码分解和组合以实现代码复用。
+系统可扩展性：设计模式可以使系统更加灵活，易于扩展，并且能够适应不同的需求。
+代码可读性：使用设计模式可以提高代码的可读性，使代码更加清晰。
+
+
+https://www.testgorilla.com/blog/python-oops-interview-questions/
+https://medium.com/@edwinvarghese4442/top-oops-questions-asked-in-python-interviews-8bd01623e6f5
+https://www.geeksforgeeks.org/oops-interview-questions/
+https://www.mygreatlearning.com/blog/oops-interview-questions/
+https://medium.com/@mohsin.shaikh324/50-essential-questions-on-python-object-oriented-programming-oop-98f9605ca95f
+https://www.simplilearn.com/tutorials/java-tutorial/oops-interview-questions
+https://www.foundit.in/career-advice/python-oops-interview-questions/
+https://www.interviewbit.com/oops-interview-questions/
+
 </details>
 
 
