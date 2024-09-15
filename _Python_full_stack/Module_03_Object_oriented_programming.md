@@ -2029,11 +2029,12 @@ getattr, setattr, hasattr, delattr
 </details>
 
 
+<details>
+<summary><h1>4. Network Programming</h1></summary>
+
+![Python_File_Operation](/_Python_full_stack/imgs/Module_3.jpg)
 
 
 
-
-
-
-
+</details>
 
