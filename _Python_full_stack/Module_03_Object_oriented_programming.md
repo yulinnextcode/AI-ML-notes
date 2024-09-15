@@ -1,8 +1,9 @@
 
+Module_03. Object_Oriented&Network&Cocurrent Programming
 
 <details>
-<summary><h1>0. Object_Oriented&Network&Cocurrent Programming</h1></summary>
-
+<summary><h1>0. General</h1></summary>
+	
 ## 0.1 Module 3 introduction
 
 This module will include following three parts:
@@ -45,7 +46,7 @@ This module will include following three parts:
 </details>
 
 <details>
-<summary><h1>1. Object Oriented</h1></summary>
+<summary><h1>1. Object Oriented Introduction</h1></summary>
 
 To implement a specific function or functions using object-oriented programming, you need to follow two steps:
 - Define a class: Within the class, define methods to implement the specific functionality.
@@ -132,8 +133,6 @@ p1.show()
 或
 p1 = Person("武沛齐",20)
 Person.show(p1)
-
-
 
 ## 1.3 Application example
 
@@ -329,24 +328,18 @@ Person.show(p1)
 > Data Encapsulation Only
 > Encapsulate Data + Process Data with Methods.
 > Create Multiple Objects with Similar Functionality.
-</details>
 
-
-
-
-
-<details>
-<summary><h1>2. Three main characteristics</h1></summary>
+## 2. Three main characteristics
 
 Object-oriented programming exists in many languages, and this programming paradigm has three main features: encapsulation, inheritance, and polymorphism.
 
-## 2.1 Encapsulation
+### 2.1 Encapsulation
 
 Encapsulation is mainly reflected in two aspects:
 - Encapsulating similar methods into a class: For example, in the above example, methods related to terrorists are written in the Terrorist class, and methods related to police are written in the Police class.
 - Encapsulating data into objects: When instantiating an object, you can encapsulate some data in the object using the __init__ initialization method, making it easier to use later.
 
-## 2.2 Inheritance
+### 2.2 Inheritance
 In object-oriented programming, there is also the concept that a subclass can inherit methods and class variables from its parent class (it doesn’t copy them; the parent class still owns them, and the subclass can just inherit them).
 
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_3_2_2.png)
@@ -376,7 +369,7 @@ s2.func()
 > Python supports multiple inheritance: it inherits from the left first, then from the right.
 > What is self? It refers to the class corresponding to self to get members. If not found, it follows the inheritance hierarchy upwards.
 
-## 2.3 Ploymorphism
+### 2.3 Ploymorphism
 
 Polymorphism, literally translated, means “many forms.”
 
@@ -418,7 +411,7 @@ v2 = Message()
 func(v2)
 ```
 
-## 2.4 Three main characteristics Summary
+## 2.3 Three main characteristics Summary
 
 - Encapsulation: Encapsulate methods into a class or encapsulate data into an object to facilitate future use.
 - Inheritance: Extract common methods from classes into a base class to implement them.
@@ -431,10 +424,8 @@ func(v2)
   func("武沛齐")
   func([11,22,33,44])
   ```
-</details>
 
-<details>
-<summary><h1>3. Extra: Review Data Type</h1></summary>
+## 2.3 Extra: Review Data Type
 
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_3_3_1.png)
 
@@ -451,11 +442,7 @@ data = v1.upper()
 print(data)
 ```
 
-</details>
-
-
-<details>
-<summary><h1>4. Summary</h1></summary>
+## 2.4 Summary
 
 - 1. Relationship between Classes and Objects:
 A class is a blueprint for creating objects. An object is an instance of a class. For example, if Person is a class, then person1 and person2 are objects (instances) of that class.
@@ -479,7 +466,7 @@ self is a reference to the current instance of the class. It is used to access v
 </details>
 
 <details>
-<summary><h1>5. OOP Advanced</h1></summary>
+<summary><h1>2. OOP Advanced</h1></summary>
 
 This module will include following three parts:
 
@@ -500,10 +487,7 @@ Today’s Summary:
 - “Object Nesting”
 - Special Members
 
-</details>
-
-<details>
-<summary><h1>6. Members</h1></summary>
+## 2.1 Members
 	
 - Variables
   - Instance Variables
@@ -514,7 +498,7 @@ Today’s Summary:
   - Static Methods
 - Properties
 
-### 6.1 Variables
+### 2.1.1 Variables
 - Instance Variables: Belong to an object, with each object maintaining its own data.
 - Class Variables: Belong to the class and can be shared by all objects, generally used to provide common data to objects (similar to global variables).
 
@@ -650,7 +634,7 @@ Parent.x = 3
 print(Parent.x, Child1.x, Child2.x) # 3 2 3
 ```
 
-### 6.2 Methods
+### 2.2 Methods
 
 - Bound Methods: Have a default self parameter and are called by an object (in this case, self refers to the object calling the method). [Callable by both objects and classes]
 - Class Methods: Have a default cls parameter and can be called by either a class or an object (in this case, cls refers to the class calling the method). [Callable by both objects and classes]
@@ -720,7 +704,7 @@ obj.download_dou_yin()
 
 ```
 
-### 6.3 Property
+### 2.3 Property
 
 Properties are actually created by combining bound methods with special decorators, allowing us to call methods without parentheses in the future. For example:
 Property = Bounding Method + Decorator
@@ -846,10 +830,7 @@ class WSGIRequest(HttpRequest):
 obj.POST             # run _get_post
 obj.POST = ...       # run _set_post
 
-</details>
-
-<details>
-<summary><h1>7. Members Decorators</h1></summary>
+## 2.2 Members Decorators
 
 In Python, member modifiers refer to public and private.
 
@@ -934,10 +915,7 @@ When to use private or public? Can members be exposed as independent functions f
 - Yes, use public.
 - No, use private and serve as an auxiliary function within the class.
 
-</details>
-
-<details>
-<summary><h1>8. Object Nesting</h1></summary>
+## 2.3 Object Nesting
 
 Example 1:
 ```python
@@ -1028,10 +1006,8 @@ for obj in user_object_list:
     print(obj.name, obj.class_object.title ,  obj.class_object.school_object.name)
 
 ```
-</details>
 
-<details>
-<summary><h1>9. Special Members</h1></summary>
+## 2.4 Special Members
 
 In Python classes, there are some special methods that follow the __method__ format. These methods have special meanings internally. Next, let’s discuss some common special members:
 
@@ -1271,10 +1247,7 @@ An iterator object supports value retrieval through the next function. If the re
         print(item)
     ```
 
-</details>
-
-<details>
-<summary><h1>10. Summary</h1></summary>
+## 2.5 Summary
 
 - Members in Object-Oriented Programming
   - Variables
@@ -1418,7 +1391,7 @@ https://www.interviewbit.com/oops-interview-questions/
 
 
 <details>
-<summary><h1>11. OOP Advanced and Applications</h1></summary>
+<summary><h1>3. OOP Advanced and Applications</h1></summary>
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_3_11_1.png)
 
 Objective: Master advanced object-oriented knowledge and related applications.
@@ -1427,16 +1400,13 @@ Objective: Master advanced object-oriented knowledge and related applications.
 - Exception Handling
 - Reflection
 
-</details>
-
-<details>
-<summary><h1>12. Inheritance (Supplement)</h1></summary>
+## 3.1 Inheritance (Supplement)
 
 Objective: Master advanced object-oriented knowledge and related applications.
 - Significance of Inheritance: Extracting common methods into the parent class helps increase code reusability.
 - Inheritance Syntax:
 
-## 12.1 mro and c3 algorithm
+### 3.1.1 mro and c3 algorithm
 ```python
 class C(object):
     pass
@@ -1475,11 +1445,7 @@ Special Supplement: One Sentence to Handle Inheritance Relationships
 
 Have you noticed that analyzing a class inheritance relationship using the formal C3 algorithm rules can be a bit cumbersome, especially when dealing with a complex class?
 
-</details>
-
-
-<details>
-<summary><h1>13. Supplement on Built-in Functions</h1></summary>
+## 3.2 Supplement on Built-in Functions
 	
 Will explain 8 built-in functions, all of which are related to object-oriented knowledge.
 
@@ -1589,11 +1555,7 @@ Will explain 8 built-in functions, all of which are related to object-oriented k
   print(issubclass(Foo, Top))   # True
   ```
 
-</details>
-
-
-<details>
-<summary><h1>14. Exception Handling</h1></summary>
+## 3.3 Exception Handling
 
 ```python
 import requests
@@ -1659,7 +1621,7 @@ finally:
 ```
 
 
-## 14.1 Exception Details
+### 3.3.1 Exception Details
 
 reviously, we simply caught exceptions and displayed a unified message when an exception occurred. If you want to handle exceptions in a more detailed manner, you can do the following:
 ```python
@@ -1756,7 +1718,7 @@ ZeroDivisionError
 """
 ```
 
-## 14.2 Self-define Exception
+### 3.3.2 Self-define Exception
 
 Actually, in development, you can also create custom exceptions.
 ```python
@@ -1866,7 +1828,7 @@ while True:
 ```
 
 
-## 14.3 Finally
+### 3.3.3 Finally
 ```python
 try:
     # 逻辑代码
@@ -1891,10 +1853,9 @@ def func():
         
 func()
 ```
-</details>
 
-<details>
-<summary><h1>15. Reflection</h1></summary>
+## 3.4 Reflection
+
 Reflection provides a more flexible way to operate on members within an object (by manipulating members within the object in the form of strings).
 	
 ```python
@@ -1944,7 +1905,7 @@ Reflection provides a more flexible way to operate on members within an object (
 > In the future, if you encounter the object.member way of writing, you can implement it based on reflection.
 
 
-## 15.1 Everything is Object
+### 3.4.1 Everything is Object
 - 对象是对象
 
   ```python
@@ -1983,7 +1944,7 @@ Reflection provides a more flexible way to operate on members within an object (
 
 Simply put: whenever you see xx.oo, you can implement it using reflection.
 
-## 15.2 Import_module + reflection
+### 3.4.2 Import_module + reflection
 
 In Python, if you want to import a module, you can use the import syntax; you can also import it in the form of a string.
 
@@ -2054,11 +2015,7 @@ cls = getattr(module_object,class_name)
 print(cls)
 ```
 
-</details>
-
-<details>
-<summary><h1>16. Summary</h1></summary>
-
+## 3.4.3 Summary
 
 - Understand MRO and C3 algorithm.
 - Differences between Python 2 and Python 3 in object-oriented programming.
