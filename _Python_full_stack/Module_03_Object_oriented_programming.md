@@ -2032,7 +2032,22 @@ getattr, setattr, hasattr, delattr
 <details>
 <summary><h1>4. Network Programming</h1></summary>
 
-![Python_File_Operation](/_Python_full_stack/imgs/Module_3.jpg)
+![Python_File_Operation](/_Python_full_stack/imgs/4.1.png)
+
+Objective: Master the basic knowledge related to networks and be able to develop programs based on Python (for data transmission over the network).
+
+Outline:
+
+Essential Network Fundamentals
+Network Programming (Python Code)
+B/S and C/S Architectures
+
+## 4.1 Essential Fundamentals
+
+### 4.1.1 Network Architecture
+
+
+
 
 
 
