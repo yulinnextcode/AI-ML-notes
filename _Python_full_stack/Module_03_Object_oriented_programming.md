@@ -1,8 +1,9 @@
 
+Module_03. Object_Oriented&Network&Cocurrent Programming
 
 <details>
-<summary><h1>0. Object_Oriented&Network&Cocurrent Programming</h1></summary>
-
+<summary><h1>0. General</h1></summary>
+	
 ## 0.1 Module 3 introduction
 
 This module will include following three parts:
@@ -45,7 +46,7 @@ This module will include following three parts:
 </details>
 
 <details>
-<summary><h1>1. Object Oriented</h1></summary>
+<summary><h1>1. Object Oriented Introduction</h1></summary>
 
 To implement a specific function or functions using object-oriented programming, you need to follow two steps:
 - Define a class: Within the class, define methods to implement the specific functionality.
@@ -132,8 +133,6 @@ p1.show()
 或
 p1 = Person("武沛齐",20)
 Person.show(p1)
-
-
 
 ## 1.3 Application example
 
@@ -329,24 +328,18 @@ Person.show(p1)
 > Data Encapsulation Only
 > Encapsulate Data + Process Data with Methods.
 > Create Multiple Objects with Similar Functionality.
-</details>
 
-
-
-
-
-<details>
-<summary><h1>2. Three main characteristics</h1></summary>
+## 2. Three main characteristics
 
 Object-oriented programming exists in many languages, and this programming paradigm has three main features: encapsulation, inheritance, and polymorphism.
 
-## 2.1 Encapsulation
+### 2.1 Encapsulation
 
 Encapsulation is mainly reflected in two aspects:
 - Encapsulating similar methods into a class: For example, in the above example, methods related to terrorists are written in the Terrorist class, and methods related to police are written in the Police class.
 - Encapsulating data into objects: When instantiating an object, you can encapsulate some data in the object using the __init__ initialization method, making it easier to use later.
 
-## 2.2 Inheritance
+### 2.2 Inheritance
 In object-oriented programming, there is also the concept that a subclass can inherit methods and class variables from its parent class (it doesn’t copy them; the parent class still owns them, and the subclass can just inherit them).
 
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_3_2_2.png)
@@ -376,7 +369,7 @@ s2.func()
 > Python supports multiple inheritance: it inherits from the left first, then from the right.
 > What is self? It refers to the class corresponding to self to get members. If not found, it follows the inheritance hierarchy upwards.
 
-## 2.3 Ploymorphism
+### 2.3 Ploymorphism
 
 Polymorphism, literally translated, means “many forms.”
 
@@ -418,7 +411,7 @@ v2 = Message()
 func(v2)
 ```
 
-## 2.4 Three main characteristics Summary
+## 2.3 Three main characteristics Summary
 
 - Encapsulation: Encapsulate methods into a class or encapsulate data into an object to facilitate future use.
 - Inheritance: Extract common methods from classes into a base class to implement them.
@@ -431,10 +424,8 @@ func(v2)
   func("武沛齐")
   func([11,22,33,44])
   ```
-</details>
 
-<details>
-<summary><h1>3. Extra: Review Data Type</h1></summary>
+## 2.3 Extra: Review Data Type
 
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_3_3_1.png)
 
@@ -451,11 +442,7 @@ data = v1.upper()
 print(data)
 ```
 
-</details>
-
-
-<details>
-<summary><h1>4. Summary</h1></summary>
+## 2.4 Summary
 
 - 1. Relationship between Classes and Objects:
 A class is a blueprint for creating objects. An object is an instance of a class. For example, if Person is a class, then person1 and person2 are objects (instances) of that class.
@@ -479,7 +466,7 @@ self is a reference to the current instance of the class. It is used to access v
 </details>
 
 <details>
-<summary><h1>5. OOP Advanced</h1></summary>
+<summary><h1>2. OOP Advanced</h1></summary>
 
 This module will include following three parts:
 
@@ -500,10 +487,7 @@ Today’s Summary:
 - “Object Nesting”
 - Special Members
 
-</details>
-
-<details>
-<summary><h1>6. Members</h1></summary>
+## 2.1 Members
 	
 - Variables
   - Instance Variables
@@ -514,7 +498,7 @@ Today’s Summary:
   - Static Methods
 - Properties
 
-### 6.1 Variables
+### 2.1.1 Variables
 - Instance Variables: Belong to an object, with each object maintaining its own data.
 - Class Variables: Belong to the class and can be shared by all objects, generally used to provide common data to objects (similar to global variables).
 
@@ -650,7 +634,7 @@ Parent.x = 3
 print(Parent.x, Child1.x, Child2.x) # 3 2 3
 ```
 
-### 6.2 Methods
+### 2.2 Methods
 
 - Bound Methods: Have a default self parameter and are called by an object (in this case, self refers to the object calling the method). [Callable by both objects and classes]
 - Class Methods: Have a default cls parameter and can be called by either a class or an object (in this case, cls refers to the class calling the method). [Callable by both objects and classes]
@@ -720,7 +704,7 @@ obj.download_dou_yin()
 
 ```
 
-### 6.3 Property
+### 2.3 Property
 
 Properties are actually created by combining bound methods with special decorators, allowing us to call methods without parentheses in the future. For example:
 Property = Bounding Method + Decorator
@@ -846,10 +830,7 @@ class WSGIRequest(HttpRequest):
 obj.POST             # run _get_post
 obj.POST = ...       # run _set_post
 
-</details>
-
-<details>
-<summary><h1>7. Members Decorators</h1></summary>
+## 2.2 Members Decorators
 
 In Python, member modifiers refer to public and private.
 
@@ -934,10 +915,7 @@ When to use private or public? Can members be exposed as independent functions f
 - Yes, use public.
 - No, use private and serve as an auxiliary function within the class.
 
-</details>
-
-<details>
-<summary><h1>8. Object Nesting</h1></summary>
+## 2.3 Object Nesting
 
 Example 1:
 ```python
@@ -1028,10 +1006,8 @@ for obj in user_object_list:
     print(obj.name, obj.class_object.title ,  obj.class_object.school_object.name)
 
 ```
-</details>
 
-<details>
-<summary><h1>9. Special Members</h1></summary>
+## 2.4 Special Members
 
 In Python classes, there are some special methods that follow the __method__ format. These methods have special meanings internally. Next, let’s discuss some common special members:
 
@@ -1271,10 +1247,7 @@ An iterator object supports value retrieval through the next function. If the re
         print(item)
     ```
 
-</details>
-
-<details>
-<summary><h1>10. Summary</h1></summary>
+## 2.5 Summary
 
 - Members in Object-Oriented Programming
   - Variables
@@ -1418,7 +1391,7 @@ https://www.interviewbit.com/oops-interview-questions/
 
 
 <details>
-<summary><h1>11. OOP Advanced and Applications</h1></summary>
+<summary><h1>3. OOP Advanced and Applications</h1></summary>
 ![Python_File_Operation](/_Python_full_stack/imgs/Module_3_11_1.png)
 
 Objective: Master advanced object-oriented knowledge and related applications.
@@ -1427,16 +1400,13 @@ Objective: Master advanced object-oriented knowledge and related applications.
 - Exception Handling
 - Reflection
 
-</details>
-
-<details>
-<summary><h1>12. Inheritance (Supplement)</h1></summary>
+## 3.1 Inheritance (Supplement)
 
 Objective: Master advanced object-oriented knowledge and related applications.
 - Significance of Inheritance: Extracting common methods into the parent class helps increase code reusability.
 - Inheritance Syntax:
 
-## 12.1 mro and c3 algorithm
+### 3.1.1 mro and c3 algorithm
 ```python
 class C(object):
     pass
@@ -1475,11 +1445,7 @@ Special Supplement: One Sentence to Handle Inheritance Relationships
 
 Have you noticed that analyzing a class inheritance relationship using the formal C3 algorithm rules can be a bit cumbersome, especially when dealing with a complex class?
 
-</details>
-
-
-<details>
-<summary><h1>13. Supplement on Built-in Functions</h1></summary>
+## 3.2 Supplement on Built-in Functions
 	
 Will explain 8 built-in functions, all of which are related to object-oriented knowledge.
 
@@ -1589,11 +1555,7 @@ Will explain 8 built-in functions, all of which are related to object-oriented k
   print(issubclass(Foo, Top))   # True
   ```
 
-</details>
-
-
-<details>
-<summary><h1>14. Exception Handling</h1></summary>
+## 3.3 Exception Handling
 
 ```python
 import requests
@@ -1659,7 +1621,7 @@ finally:
 ```
 
 
-## 14.1 Exception Details
+### 3.3.1 Exception Details
 
 reviously, we simply caught exceptions and displayed a unified message when an exception occurred. If you want to handle exceptions in a more detailed manner, you can do the following:
 ```python
@@ -1756,7 +1718,7 @@ ZeroDivisionError
 """
 ```
 
-## 14.2 Self-define Exception
+### 3.3.2 Self-define Exception
 
 Actually, in development, you can also create custom exceptions.
 ```python
@@ -1866,7 +1828,7 @@ while True:
 ```
 
 
-## 14.3 Finally
+### 3.3.3 Finally
 ```python
 try:
     # 逻辑代码
@@ -1891,10 +1853,9 @@ def func():
         
 func()
 ```
-</details>
 
-<details>
-<summary><h1>15. Reflection</h1></summary>
+## 3.4 Reflection
+
 Reflection provides a more flexible way to operate on members within an object (by manipulating members within the object in the form of strings).
 	
 ```python
@@ -1944,7 +1905,7 @@ Reflection provides a more flexible way to operate on members within an object (
 > In the future, if you encounter the object.member way of writing, you can implement it based on reflection.
 
 
-## 15.1 Everything is Object
+### 3.4.1 Everything is Object
 - 对象是对象
 
   ```python
@@ -1983,7 +1944,7 @@ Reflection provides a more flexible way to operate on members within an object (
 
 Simply put: whenever you see xx.oo, you can implement it using reflection.
 
-## 15.2 Import_module + reflection
+### 3.4.2 Import_module + reflection
 
 In Python, if you want to import a module, you can use the import syntax; you can also import it in the form of a string.
 
@@ -2054,11 +2015,7 @@ cls = getattr(module_object,class_name)
 print(cls)
 ```
 
-</details>
-
-<details>
-<summary><h1>16. Summary</h1></summary>
-
+## 3.4.3 Summary
 
 - Understand MRO and C3 algorithm.
 - Differences between Python 2 and Python 3 in object-oriented programming.
@@ -2072,11 +2029,504 @@ getattr, setattr, hasattr, delattr
 </details>
 
 
+<details>
+<summary><h1>4. Network Programming</h1></summary>
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.1.png)
+
+Objective: Master the basic knowledge related to networks and be able to develop programs based on Python (for data transmission over the network).
+
+Outline:
+
+Essential Network Fundamentals
+Network Programming (Python Code)
+B/S and C/S Architectures
+
+## 4.1 Essential Fundamentals
+
+### 4.1.1 Network Architecture
+
+#### 4.1.1.1 Switch
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.2.png)
+
+#### 4.1.1.2 Router
+
+To set up a network that allows communication between multiple dormitories, you would need a Layer 2 switch and an enterprise router. This combination helps create a larger local area network (LAN) and can also mitigate broadcast storms.
+
+```
+划分好网络结构之后，其实会给各宿舍的电脑分配IP和网关，例如：
+   宿舍A：
+		- 电脑1：192.168.10.1  网关：192.168.10.254
+		- 电脑2：192.168.10.2  网关：192.168.10.254
+		- 电脑3：192.168.10.3  网关：192.168.10.254
+		- 电脑4：192.168.10.4  网关：192.168.10.254
+   宿舍B
+		- 电脑1：192.168.20.1  网关：192.168.20.254
+		- 电脑2：192.168.20.2  网关：192.168.20.254
+		- 电脑3：192.168.20.3  网关：192.168.20.254
+		- 电脑4：192.168.20.4  网关：192.168.20.254
+
+然后再在路由器中配置路由表（包含网段和路由器上的接口的对应关系），例如：
+	 接口             IP
+     eth0   	  192.168.10.254（192.168.10网段）
+     eth1   	  192.168.20.254（192.168.20网段）
+    
+想与外部网络通信，需要配置网关，网关就是路由表中配置的指向此网段的IP。其实就类似于贸易出口都需要经过海关。
+```
+
+
+```python
+数据通信的过程结合了APR协议和IP协议，例如：宿舍A的电脑1向宿舍B的电脑3发送消息（目标IP：192.168.20.3）。
+
+简化过程：
+	- 宿舍A的电脑1，通过广播或单播将数据发送到网管（路由器）
+	- 路由器接收到数据之后，再通过对应的接口把数据通过广播的形式发送到宿舍B。
+注意：各自局域网内通过学习并记录相关mac地址后，就可以不再使用广播形式，而是使用单播来发送消息了。
+```
+![Python_File_Operation](/_Python_full_stack/imgs/4.3.png)
+![Python_File_Operation](/_Python_full_stack/imgs/4.4.png)
+
+#### 4.1.1.3 3-tier switch
+
+二层交换机内部只维护了接口和Mac地址的对应关系。相当于局域网内转发数据的功能，如果想跨局域网的话需要借助路由器。
+三层交换机集成了 交换机 & 路由器的功能（大部分路由器功能），上述的三个设备其实可以用一个三层交换机就可以搞定。既能实现局域网内收发消息，也能实现不同局域网通信。
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.5.png)
+
+#### 4.1.1.4 Small company fundamental network architecture
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.6.png)
+
+#### 4.1.1.5 Family network architecture
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.7.png)
+
+#### 4.1.1.6 Network architecture
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.8.png)
+
+### 4.1.2 Network keywords
+
+#### 4.1.2.1 Subnet mask and IP address
+
+Each computer in the network will have an IP bound to it, so the corresponding computer can be found through the IP.
+
+An IP address can be divided into two parts: network address + host address.
+
+- 问题1：如何确定网络地址和主机地址呢？
+
+  ```
+  通过子网掩码就可以确定IP的网络地址和主机地址。
+  
+  示例1：
+      	IP：192.168.1.199      11000000.10101000.00000001.11000111
+  	子网掩码：255.255.255.0     11111111.11111111.11111111.00000000
+  此时，网络地址就是前24位 + 主机地址是后8位。你可能见过有些IP这样写 192.168.1.199/24，意思也是前24位是网络地址。
+  
+  
+  示例2：
+      	IP：192.168.99.254     11000000.10101000.01100011.11111110
+  	子网掩码：255.255.240.0     11111111.11111111.11111100.00000000
+  此时，网络地址就是前22位 + 主机地址是后10位。你可能见过有些IP这样写 192.168.99.254/22，意思也是前22位是网络地址。
+  ```
+
+- 问题2：划分 网络地址 + 主机地址 的意义是什么？
+
+  ```
+  网络地址相同的IP，也称为属于同一个网段。
+  在局域网内只有同一个网段的IP才能相互通信，不同网段IP想要通信需要借助路由的转发才能通信。
+  
+  当了解子网掩码之后，其实就可以确定某个网段可以容纳的主机个数，例如：
+  【IP: 192.168.10.2  掩码：255.255.255.0】 和 【192.168.10.251 掩码：255.255.255.0】 数据同一个网段。
+  
+  	示例网段的主机范围：11000000.10101000.00001010. 00000001  ~  11000000.10101000.00001010.  11111110
+  	                 --------------------------              --------------------------
+  	                          网络地址                                   网络地址
+  				           192.168.10.1                 ~           192.168.10.254
+                             
+  【IP: 192.168.8.1  掩码：255.255.240.0】 和 【192.168.11.254 掩码：255.255.240.0】 数据同一个网段。
+  	子网掩码：255.255.240.0
+  	示例网段的主机范围：11000000.10101000.000010 00.00000001  ~  11000000.10101000.000010 11.11111110
+  	                 11111111.11111111.111111 00.00000000
+  	                 ------------------------                 ------------------------
+  	                          网络地址                                   网络地址
+  				           192.168.8.1                 ~           192.168.11.254
+  				           
+  【IP: 192.168.96.1  掩码：255.255.240.0】 和 【192.168.99.254  掩码：255.255.240.0】 数据同一个网段。
+  	示例网段的主机范围：11000000.10101000.011000 00.00000001  ~  11000000.10101000.011000 11.11111110
+  	         
+  	                 ------------------------                 ------------------------
+  	                          网络地址                                   网络地址
+  				           192.168.96.1                 ~           192.168.99.254    
+  ```
+
+只要是同一个网段（网络地址相同），给他们放到同一个局域网内就可以通信。
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.9.png)
+![Python_File_Operation](/_Python_full_stack/imgs/4.10.png)
+
+#### 4.1.2.2 DHCP
+
+In a local area network (LAN), there are two ways to assign an IP to a computer:
+
+- Manual Setting: Open the specified menu and enter the corresponding IP information.
+- Automatic Acquisition
+```python
+  - 在电脑端，IP地址获取方式设置为自动。
+  - 在路由器或三层交换机，开启DHCP服务，并设置IP地址池。（家用路由器上也是基于DHCP服务自动分配的IP）
+  
+  这样，电脑只要连接只该网络，DHCP服务就会为它自动分配IP、子网掩码、网关。
+  ```
+![Python_File_Operation](/_Python_full_stack/imgs/4.11.png)
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.12.png)
+
+#### 4.1.2.3 Private and Public IP
+
+```
+一般情况下，内网IP都用这些（潜规则）：
+	- 10.0.0.0 到 10.255.255.255
+	- 172.16.0.0 到172.31.255.255
+	- 192.168.0.0 到192.168.255.255
+```
+
+之前我们自己在一个局域网内为电脑分配的IP都称为`内网IP`，基于内网IP可以在一个局域网内进行相互通信（也需要相关的配置）。
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.13.png)
+
+所以，以后如果你想开发一个网站供全球的用户访问，那你就需要做以下几件事：
+
+- 拉专线，申请固定公网IP
+- 买一台服务器（就是性能好的电脑）
+- 公网IP绑定至此服务器
+- 将写好的代码放在服务器上并运行起来
+
+这样就可以搞定了...
+
+**扩展**：IPv4和IPv6
+
+```python
+IPv4，长度为 32 位（4 个字节）， 格式：A.B.C.D
+IPv6，长度为 128 位（16 个字节），用":"分成8段，格式：XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX（每个X是一个16进制数）。
+```
+
+#### 4.1.2.4 Cloud server
+
+大家可能之前听说过：阿里云、腾讯云、亚马逊aws等之类的平台都在搞云服务器，那是个啥？
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.14.png)
+
+
+简单的说：他们造了一个机房（网吧），买了很多很多的服务器（高性能电脑），然后将他们放在机房，然后通电+通网，主要对外去租赁这些服务器资源，让用户不必再自己  拉专线+配置网络+买服务器。
+
+假设，你想要在腾讯云租一台服务器，就可以根据自己的需求去选择配置，腾讯云会根据配置在他的物理机上虚拟出一个服务器，并进行相应的环境初始化并绑定公网固定IP，这样你就可以快速拥有一台可以被大家访问的服务器了。
+
+注意：一台性能非常高的物理机虚拟出很多虚拟机，类似于你在自己电脑上通过vmware、parallel等搞出多个虚拟机。
+
+#### 4.1.2.5 Ports
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.15.png)
+
+假设，你在腾讯租了一台云服务器（外网IP:123.206.15.88），然后又开发了 2 个网站运行在服务器上。
+
+那么问题来了，用户在自己的电脑或手机上如何来分别访问同一台服务器上两个程序呢？
+
+其实，在计算机中有一个 `端口` 的概念，每个程序想要通过网络进行通讯都必须要指定一个端口，例如：
+
+- 网站A：使用8001端口，那么用户在自己电脑上或手机上访问时指定 IP和端口 即可，如： `123.206.15.88:8001` 
+- 网站B：使用8002端口，那么用户在自己电脑上或手机上访问时指定 IP和端口 即可，如： `123.206.15.88:8002` 
+
+注意：端口的取值范围：0 ~ 65535，很多端口在计算机的内部已被使用，我们平时自定义时尽量选择5000之后的端口。
+
+示例：访问百度
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.16.png)
+
+提示：如果在浏览器上只写IP不写端口，则默认是80端口。
+
+#### 4.1.2.6 Domain
+
+假设你创业开发了一个网站，用户很难记住你的公网IP：`123.206.15.88:80`   ``123.206.15.88`。
+
+所以，域名就诞生了，让域名和IP创建对应关系，用户只需要记住域名就可以了，例如：
+
+```
+www.baidu.com   -->  110.242.68.3
+www.taobao.com  --> 121.18.239.232
+...
+```
+
+注意：域名只是和IP创建了对应关系，与端口无关 `www.baidu.com:80`。
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.17.png)
+
+在用户在自己的电脑或手机上输入域名去访问时，其实要执行两个步骤：
+
+- 根据域名寻找IP。（寻找IP）
+- 获得IP之后，再通过IP再去访问指定服务器。
+
+## 4.2 Network programming
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.15.png)
+
+Python中内置了一个socket模块，可以快速实现网络之间进行传输数据。例如：
+
+- 服务端，放在左边云服务器中（有固定IP）
+
+  ```python
+  import socket
+  
+  # 1.监听本机的IP和端口
+  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  sock.bind(('123.206.15.88', 8001)) # IP,端口
+  sock.listen(5) # 支持排队等待5人
+  
+  while True:
+      # 2.等待，有人来连接（阻塞）
+      conn, addr = sock.accept() # 等待客户端来连接（阻塞）
+  
+      # 3.等待，连接者发送消息（阻塞）
+      client_data = conn.recv(1024) # 等待接收客户端发来数据
+      print(client_data.decode('utf-8')) # 字节
+  
+      # 4.给连接者回复消息
+      conn.sendall("hello world".encode('utf-8'))
+  
+      # 5.关闭连接
+      conn.close()
+  
+  # 6.停止服务端程序
+  sock.close()
+  ```
+
+- 客户端，放在右边用户电脑上
+
+  ```python
+  import socket
+  
+  # 1. 向指定IP发送连接请求
+  client = socket.socket()
+  client.connect(('123.206.15.88', 8001)) # 向服务端发起连接（阻塞）10s
+  
+  # 2. 连接成功之后，发送消息
+  client.sendall('hello'.encode('utf-8'))
+  
+  # 3. 等待，消息的回复（阻塞）
+  reply = client.recv(1024)
+  print(reply)
+  
+  # 4. 关闭连接
+  client.close()
+  ```
+
+上述示例需要借助于互联网，你至少需要租一台云服务器才能通信。
+
+为了节省学习成本，大家可以在自己电脑上模拟【服务端】和【客户端】，等以后项目开发完毕后，再租服务器并部署到服务器上。
+
+注意：在自己本地运行上述代码时，要监听和连接时的IP地址。
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.18.png)
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.19.png)
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.20.png)
+
+当然，你也可以把在自己的局域网内找两台电脑，A作为服务端，B作为客户端，这样两者也可以通信。
+
+```python
+服务端的代码需修改：监听的IP修改为A的IP地址。
+客户端的代码需修改：连接的IP修改为A的IP地址（客户端要去找到服务端，并与服务端创建连接）。
+```
+
+注意事项：
+
+- 本机：
+
+  ```
+  服务端IP：127.0.0.1  / 192.168.28.92（局域网IP）
+  ```
+
+- 局域网：
+
+  ```python
+  服务端IP：192.168.28.92（局域网IP）    
+  ```
+
+- 互联网
+
+  ```python
+  服务端IP：123.206.15.88（外网IP）
+  ```
+
+
+### 案例：智障客服
+
+- 服务端
+
+  ```python
+  import socket
+  
+  # 1.监听本机的IP和端口
+  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  sock.bind(('127.0.0.1', 8001))  # 127.0.0.1 或 查看自己局域网本地IP地址
+  sock.listen(5)
+  
+  while True:
+      # 2.等待，有人来连接（阻塞）
+      conn, addr = sock.accept()
+      print("有人来连接了...")
+  
+      # 3.连接成功后立即发送
+      conn.sendall("欢迎使用xx系统，请输入您想要办理的业务！".encode("utf-8"))
+  
+      while True:
+          # 3.等待接受信息
+          data = conn.recv(1024)
+          if not data:
+              break
+          data_string = data.decode("utf-8")
+  
+          # 4.回复消息
+          conn.sendall("你说啥？".encode("utf-8"))
+      print("断开连接了")
+      # 5.关闭与此人的连接
+      conn.close()
+  
+  # 6.停止服务端程序
+  sock.close()
+  
+  ```
+
+- 客户端
+
+  ```python
+  import socket
+  
+  # 1. 向指定IP发送连接请求
+  client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  client.connect(('127.0.0.1', 8001))
+  
+  # 2.连接成功后，获取系统登录信息
+  message = client.recv(1024)
+  print(message.decode("utf-8"))
+  
+  while True:
+      content = input("请输入(q/Q退出)：")
+      if content.upper() == 'Q':
+          break
+      client.sendall(content.encode("utf-8"))
+  
+      # 3. 等待，消息的回复
+      reply = client.recv(1024)
+      print(reply.decode("utf-8"))
+  
+  # 关闭连接，关闭连接时会向服务端发送空数据。
+  client.close()
+  ```
 
 
 
+### 案例：文件上传
+
+- 服务端
+
+  ```python
+  import socket
+  
+  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  sock.bind(('127.0.0.1', 8001))  # 127.0.0.1 或 查看自己局域网本地IP地址
+  sock.listen(5)
+  
+  conn, addr = sock.accept()
+  
+  # 接收文件大小
+  data = conn.recv(1024)
+  total_file_size = int(data.decode('utf-8'))
+  
+  # 接收文件内容
+  file_object = open('xxx.png', mode='wb')
+  recv_size = 0
+  while True:
+      # 每次最多接收1024字节
+      data = conn.recv(1024)
+      file_object.write(data)
+      file_object.flush()
+  
+      recv_size += len(data)
+      # 上传完成
+      if recv_size == total_file_size:
+          break
+  
+  # 接收完毕，关闭连接
+  conn.close()
+  sock.close()
+  
+  ```
+
+- 客户端
+
+  ```python
+  import time
+  import os
+  import socket
+  
+  client = socket.socket()
+  client.connect(('127.0.0.1', 8001))
+  
+  file_path = input("请输入要上传的文件：")
+  
+  # 先发送文件大小
+  file_size = os.stat(file_path).st_size
+  client.sendall(str(file_size).encode('utf-8'))
+  
+  print("准备...")
+  time.sleep(2)
+  print("开始上传..")
+  file_object = open(file_path, mode='rb')
+  read_size = 0
+  while True:
+      chunk = file_object.read(1024) # 每次读取1024字节
+      client.sendall(chunk)
+      read_size += len(chunk)
+      if read_size == file_size:
+          break
+  
+  client.close()
+  ```
+
+## 4.3 B/S and C/S architecture
+
+![Python_File_Operation](/_Python_full_stack/imgs/4.15.png)
+
+- C/S架构，是Client和Server的简称。开发这种架构的程序意味着你即需要开发客户端也需要开发服务端。
+
+  ```python
+  例如：你电脑的上QQ、百度网盘、钉钉、QQ音乐 等安装在电脑上的软件。
+  
+  服务端：互联网公司会开发一个程序放在他们的服务器上，用于给客户端提供数据支持。
+  客户端：大家在电脑安装的相关程序，内部会连接服务端进行收发数据并提供 交互和展示的功能。
+  ```
+
+- B/S架构，是Browser和Server的简称。开发这种架构的程序意味着你开发服务端即可，客户端用用户电脑上的浏览器来代替。
+
+  ```
+  例如：淘宝、京东等网站。
+  
+  服务端：互联网公司开发一个网站，放在他们的服务器上。
+  客户端：不需要开发，用现成的浏览器即可。
+  ```
+
+简而言之，B/S架构就是开发网站；C/S架构就是开发安装在电脑的软件。
 
 
+## 4.4 Summary
+
+1. 了解常见设备和网络架构。
+2. 掌握常见网络词汇的意思。
+3. 了解B/S和C/S架构的区别。
+4. 基于Python的socket模块实现网络编程。
 
 
+</details>
 
